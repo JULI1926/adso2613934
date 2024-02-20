@@ -52,11 +52,15 @@ main {
                     background-color: #ffa;
                     transform: scale(1.02);
                 }
+                &:is(:hover) a span {
+                    transform: scale(1.1) rotateX(360deg);
+                }
                 a:is(:link, :visited){
                     display: flex;
-                    padding: 1rem;
+                    align-items: center;
+                    padding: 0.6rem;
                     text-decoration: none;
-                    gap: 1rem;
+                    gap: 0.6rem;
                     color: #808000;
                 }
                 
@@ -68,6 +72,7 @@ main {
                     justify-content: center;
                     color: #fff9;
                     height: 36px;
+                    transition: all 0.4s ease-in-out;
                     width: 36px;
                 }
             }
