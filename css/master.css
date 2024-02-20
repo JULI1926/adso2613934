@@ -49,7 +49,26 @@ main {
                 width: 300px;
                 transition: all 0.5s ease-in;
                 &:is(:hover) {
-                    background-color: #00f;
+                    background-color: #ffa;
+                    transform: scale(1.02);
+                }
+                a:is(:link, :visited){
+                    display: flex;
+                    padding: 1rem;
+                    text-decoration: none;
+                    gap: 1rem;
+                    color: #808000;
+                }
+                
+                span {
+                    background-color: #808000;
+                    border-radius: 50%;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    color: #fff9;
+                    height: 36px;
+                    width: 36px;
                 }
             }
         }
