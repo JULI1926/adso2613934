@@ -71,7 +71,7 @@ class Runner {
     }
 
     private function animateJump() {
-        // Lógica de animación de salto aquí
+        return '../../img/jumpking.png';
     }
 }
 
