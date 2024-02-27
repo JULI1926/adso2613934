@@ -10,7 +10,8 @@
     <main>
         <h1>Runner Animation</h1>
         <section>
-            <figure id="runner-container" class="<?php echo $runner->getState(); ?>"></figure>
+            <figure id="runner-container" class="<?php echo isset($runner) ? $runner->getState() : ''; ?>"></figure>
+            <img src="../img/run.gif" alt="">
             <div id="buttons">
                 <form method="post">
                     <div>
@@ -66,7 +67,7 @@ class Runner {
     }
 
     private function animateRun() {
-        // Lógica de animación de carrera aquí
+        return '../../img/run.png';
     }
 
     private function animateJump() {
@@ -74,12 +75,11 @@ class Runner {
     }
 }
 
-// Crear instancia de Runner
-$runner = new Runner('Usain Bolt', 35, 105);
-
 // Manejar acciones del formulario
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $action = $_POST["action"];
+    $runner = new Runner('Usain Bolt', 35, 105); // Crear instancia de Runner
+
     switch ($action) {
         case 'run':
             $runner->run();
