@@ -11,11 +11,16 @@ body {
 #runner-container {
     width: 100px; /* Ancho de cada imagen en el sprite */
     height: 100px; /* Alto de cada imagen en el sprite */
-    background-image: url('img/run-1.png'); /* Ruta al primer sprite */
+    background-image: url('../../img/run-1.png'); /* Ruta al primer sprite */
 }
 
 .run {
     animation: run-animation 1s steps(8) infinite; /* 8 frames en la animación */
+}
+
+#buttons div {
+    display: inline-block;
+    margin-right: 10px;
 }
 
 @keyframes run-animation {

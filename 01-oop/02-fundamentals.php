@@ -1,90 +1,98 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Runner Animation</title>
     <link rel="stylesheet" href="css/master.css">
 </head>
-
 <body>
     <main>
         <h1>Runner Animation</h1>
         <section>
-            <figure id="runner-container" class="stop"></figure>
+            <figure id="runner-container" class="<?php echo $runner->getState(); ?>"></figure>
             <div id="buttons">
-                <button id="run-button">Run</button>
-                <button id="stop-button">Stop</button>
-                <button id="jump-button">Jump</button>
+                <form method="post">
+                    <div>
+                        <button type="submit" name="action" value="run">Run</button>
+                    </div>
+                    <div>
+                        <button type="submit" name="action" value="stop">Stop</button>
+                    </div>
+                    <div>
+                        <button type="submit" name="action" value="jump">Jump</button>
+                    </div>
+                </form>
             </div>
         </section>
     </main>
-    <script>
-        document.addEventListener("DOMContentLoaded", function() {
-    const runnerContainer = document.getElementById('runner-container');
-    const runButton = document.getElementById('run-button');
-    const stopButton = document.getElementById('stop-button');
-    const jumpButton = document.getElementById('jump-button');
-    
-    class Runner {
-        constructor(name, age, number) {
-            this.name = name;
-            this.age = age;
-            this.number = number;
-            this.state = 'stop';
-            this.frame = 1; // Inicia con el primer frame
-        }
+</body>
+</html>
 
-        run() {
-            this.state = 'run';
-            runnerContainer.className = 'run';
-            this.animateRun();
-        }
+<?php
 
-        stop() {
-            this.state = 'stop';
-            runnerContainer.className = 'stop';
-            this.frame = 1; // Reinicia el frame cuando se detiene
-        }
+class Runner {
+    private $name;
+    private $age;
+    private $number;
+    private $state;
+    private $frame;
 
-        jump() {
-            this.state = 'jump';
-            runnerContainer.className = 'jump';
-            this.animateJump();
-        }
-
-        animateRun() {
-            const self = this;
-            setInterval(function() {
-                if (self.state === 'run') {
-                    self.frame = (self.frame % 8) + 1; // Ciclo de 1 a 8
-                    runnerContainer.style.backgroundImage = `url('img/run-${self.frame}.png')`;
-                }
-            }, 125); // 125ms para una animación de 8 frames a 1s
-        }
-
-        animateJump() {
-            // Implementa la animación de salto aquí si es necesario
-        }
+    public function __construct($name, $age, $number) {
+        $this->name = $name;
+        $this->age = $age;
+        $this->number = $number;
+        $this->state = 'stop';
+        $this->frame = 1; // Inicia con el primer frame
     }
 
-    const runner = new Runner('Usain Bolt', 35, 105);
+    public function run() {
+        $this->state = 'run';
+        $this->animateRun();
+    }
 
-    runButton.addEventListener('click', function() {
-        runner.run();
-    });
+    public function stop() {
+        $this->state = 'stop';
+        $this->frame = 1; // Reinicia el frame cuando se detiene
+    }
 
-    stopButton.addEventListener('click', function() {
-        runner.stop();
-    });
+    public function jump() {
+        $this->state = 'jump';
+        $this->animateJump();
+    }
 
-    jumpButton.addEventListener('click', function() {
-        runner.jump();
-    });
-});
+    public function getState() {
+        return $this->state;
+    }
 
-    </script>
-</body>
+    private function animateRun() {
+        // Lógica de animación de carrera aquí
+    }
 
-</html>
+    private function animateJump() {
+        // Lógica de animación de salto aquí
+    }
+}
+
+// Crear instancia de Runner
+$runner = new Runner('Usain Bolt', 35, 105);
+
+// Manejar acciones del formulario
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $action = $_POST["action"];
+    switch ($action) {
+        case 'run':
+            $runner->run();
+            break;
+        case 'stop':
+            $runner->stop();
+            break;
+        case 'jump':
+            $runner->jump();
+            break;
+        default:
+            break;
+    }
+}
+
+?>
