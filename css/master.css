@@ -48,14 +48,17 @@ main {
                 padding: 1rem;
                 width: 300px;
                 transition: all 0.5s ease-in;
+
                 &:is(:hover) {
                     background-color: #ffa;
                     transform: scale(1.02);
                 }
+
                 &:is(:hover) a span {
                     transform: scale(1.1) rotateX(360deg);
                 }
-                a:is(:link, :visited){
+
+                a:is(:link, :visited) {
                     display: flex;
                     align-items: center;
                     padding: 0.6rem;
@@ -63,7 +66,7 @@ main {
                     gap: 0.6rem;
                     color: #808000;
                 }
-                
+
                 span {
                     background-color: #808000;
                     border-radius: 50%;
@@ -76,6 +79,18 @@ main {
                     width: 36px;
                 }
             }
+        }
+    }
+}
+
+table {
+    border-collapse: collapse;
+
+    tr {
+        td {
+            background-color: #fff1;            
+            border: 1px solid #fff;
+            padding: 8px;
         }
     }
 }
