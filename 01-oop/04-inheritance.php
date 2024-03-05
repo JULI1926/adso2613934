@@ -74,14 +74,18 @@
                 protected $name;
                 protected $type;
                 protected $health;
+                protected $image;
+
+                
 
                 //protected $image debe mostrar imagen al evolucionar
 
-                public function __construct($name, $type, $health) {
+                public function __construct($name, $type, $health, $image) {
 
                     $this->name = $name;
                     $this->type = $type;
                     $this->health = $health;
+                    $this->image = $image;
 
                 }
                 // Methods
@@ -92,30 +96,52 @@
                     return "Defense";
                 }                
                 public function show(){
-                    return $this->name . "|" . $this->type . "|" . $this->health;
-                }                
+                    // Crear un array asociativo con los atributos del Pokemon
+                    $pokemonInfo = [
+                        'Nombre' => $this->name,
+                        'Tipo' => $this->type,
+                        'Salud' => $this->health,
+                        'Imagen' => '<img src="' . $this->image . '" alt="' . $this->name . '">'
+                    ];
+                
+                    // Inicializar una cadena vacía para contener la información formateada
+                    $formattedInfo = '';
+                
+                    // Recorrer el array asociativo y formatear la información en "Nombre = Valor"
+                    foreach ($pokemonInfo as $key => $value) {
+                        $formattedInfo .= $key . ' = ' . $value . '<br>';
+                    }
+                
+                    // Retornar la información formateada
+                    return $formattedInfo;
+                }
+                
+                
+                           
 
             }
 
             class Evolve extends Pokemon {
-                public function levelUP($name, $type, $health) {
+                public function levelUP($name, $type, $health, $image) {
                     $this->name = $name;
                     $this->type = $type;
                     $this->health = $health;
+                    $this->image = $image;
                 }
             }
 
-            $pk = new Evolve('Charmander','Fire',150);
+            $pk = new Evolve('Squirtle','Water',150,'../img/squirtle_01.png');            
             echo $pk->attack();
             echo $pk->defense();
-            $pk->levelUp('Charmeleon','Fire',250);
             echo $pk->show();
-            $pk->levelUp('Charizard','Fire-Fly',450);
+            $pk->levelUp('Wartortle','Water',250,'../img/squirtle_02.png');
+            echo $pk->show();
+            $pk->levelUp('Blastoise','Water',450,'../img/squirtle_03.png');
             echo $pk->show();
 
         ?>
             <h2>Evolve your Pokemon</h2>
-                        
+                       
             
             
         </section>
