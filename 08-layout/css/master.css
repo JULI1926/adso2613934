@@ -1,0 +1,33 @@
+ :root {
+    --ff-heading: "Roboto Slab", serif;
+    --ff-body: "Inter", sans-serif;
+    --cl-primary: #B3C8CF;
+    --cl-second: #BED7DC;
+    --cl-third: #E5DDC5;
+    --cl-fourth: #F1EEDC;    
+ }
+
+
+
+body {
+    background-color: var(--cl-third);
+    font-family: var(--ff-body);
+    font-weight: 100;
+    font-style: normal;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    main {
+    --cl-third: #E5DDC5;
+    background-color: #fff;
+        height: 800px;
+        width: 400px;
+
+    }
+}
+/*------------------------*/
+/*  01 - WELCOME */
+/*------------------------*/
+
+
