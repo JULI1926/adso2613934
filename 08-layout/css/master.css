@@ -3,7 +3,7 @@
     --ff-body: "Inter", sans-serif;
     --cl-primary: #B3C8CF;
     --cl-second: #BED7DC;
-    --cl-third: #E5DDC5;
+    --cl-third: #fff;
     --cl-fourth: #F1EEDC;    
  }
 
@@ -18,10 +18,10 @@ body {
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    main {
-    --cl-third: #E5DDC5;
-    background-color: #fff;
+    main {    
+        background: url(../images/bg-main.png) no-repeat center;
         height: 800px;
+        overflow: hidden;
         width: 400px;
 
     }
@@ -30,4 +30,39 @@ body {
 /*  01 - WELCOME */
 /*------------------------*/
 
+main.welcome {
+    header {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-blocK: 2rem;
+    }
+    section.slider {
+        display: flex;
+        flex-direction: column;
+        
+    }
+    footer {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        a:is(:link, :visited){
+            background: url(../images/btn-link.png) no-repeat center;
+            height: 60px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 7rem;
+            transition: all 0.1s ease-in;
+            width: 300px;
+        }
+        a:is(:hover){
+            background: url(../images/btn-hover.png) no-repeat center;
+            transform: scale(1.02) translateY(-4px);
+        }
+        a:is(:active){
+            background: url(../images/btn-active.png) no-repeat center;
+        }
 
+    }
+}
