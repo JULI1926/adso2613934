@@ -1,68 +1,97 @@
- :root {
+:root {
     --ff-heading: "Roboto Slab", serif;
     --ff-body: "Inter", sans-serif;
-    --cl-primary: #B3C8CF;
-    --cl-second: #BED7DC;
+    --cl-primary: #b3c8cf;
+    --cl-second: #bed7dc;
     --cl-third: #fff;
-    --cl-fourth: #F1EEDC;    
- }
-
-
-
-body {
-    background-color: var(--cl-third);
-    font-family: var(--ff-body);
+    --cl-fourth: #f1eedc;
+  }
+  
+  /* General */
+  
+  body {
+    background-color: var(--cl-fourth); /* Utiliza --cl-fourth en lugar de --color-fourth */
+    font-family: var(--ff-body); /* Utiliza --ff-body en lugar de -ff-body */
     font-weight: 100;
     font-style: normal;
     display: flex;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    main {    
-        background: url(../images/bg-main.png) no-repeat center;
-        height: 800px;
-        overflow: hidden;
-        width: 400px;
-
-    }
-}
-/*------------------------*/
-/*  01 - WELCOME */
-/*------------------------*/
-
-main.welcome {
+  }
+  
+  main {
+    background: url(../images/bg-main.png) no-repeat;
+    height: 800px;
+    width: 400px;
+  }
+  
+  /* 01 - Welcome */
+  
+  main.welcome {
     header {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        margin-blocK: 2rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-block: 4rem;
     }
+  
     section.slider {
-        display: flex;
-        flex-direction: column;
-        
+      position: relative; /* Añade posición relativa para los botones */
+      display: flex;
+      flex-direction: column;
+      justify-items: center;
+      img {
+        width: 300px;
+        margin: auto;
+      }
+  
+      /* Botones prev y next */
+      .btn-prev,
+      .btn-next {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 50px; /* Ajusta esto a la anchura que desees */
+        height: 50px; /* Ajusta esto a la altura que desees */
+        cursor: pointer;
+        z-index: 999; /* Asegura que los botones estén encima del slider */
+        background-repeat: no-repeat;
+        background-position: center;
+      }
+  
+      .btn-prev {
+        left: 10px; /* Ajusta esto a la distancia que desees del borde izquierdo */
+        background-image: url("../images/btn-prev.png"); /* Ruta de la imagen del botón previo */
+      }
+  
+      .btn-next {
+        right: 10px; /* Ajusta esto a la distancia que desees del borde derecho */
+        background-image: url("../images/btn-next.png"); /* Ruta de la imagen del botón siguiente */
+      }
     }
+  
     footer {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      a:is(:link, visited) {
+        background: url(../images/btn-link.png) no-repeat;
+        height: 45px;
         display: flex;
         justify-content: center;
         align-items: center;
-        a:is(:link, :visited){
-            background: url(../images/btn-link.png) no-repeat center;
-            height: 60px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            margin-top: 7rem;
-            transition: all 0.1s ease-in;
-            width: 300px;
-        }
-        a:is(:hover){
-            background: url(../images/btn-hover.png) no-repeat center;
-            transform: scale(1.02) translateY(-4px);
-        }
-        a:is(:active){
-            background: url(../images/btn-active.png) no-repeat center;
-        }
-
+        margin-top: 5rem;
+        /*transition: all 0.2s ease-in;*/
+        width: 300px;
+      }
+      a:is(:hover) {
+        background: url(../images/btn-hover.png) no-repeat center;
+        transform: scale(1) translate(-4px);
+      }
+      a:is(:active) {
+        background: url(../images/btn-active.png) no-repeat center;
+      }
     }
-}
+  }
+  

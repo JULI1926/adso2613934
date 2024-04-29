@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game App Welcome</title>
+    <link rel="stylesheet" href="../css/fonts.css">
+    <link rel="stylesheet" href="../css/master.css">
+    <link rel="stylesheet" href="../css/reset.css">
+    <link rel="stylesheet" href="../css/owl.carousel.min.css">
+    <link rel="stylesheet" href="../css/owl.theme.default.css">
+
+</head>
+
+<body>
+    <main class="welcome">
+        <header>
+            <img src="../images/logo-welcome.svg" alt="logo">
+        </header>
+        <section class="slider owl-carousel owl-theme">        
+
+            <img src="../images/slide01.png" alt="Slide01">
+            <img src="../images/slide02.png" alt="Slide02">
+            <img src="../images/slide03.png" alt="Slide03">
+            <img src="../images/slide04.png" alt="Slide04">
+            <img src="../images/slide05.png" alt="Slide05"> 
+
+        </section>        
+        <button class="btn-prev">Prev</button>
+        <button class="btn-next">Next</button>
+        <footer>
+            <a href="" class="btn btn-explore">
+                <img src="../images/content-btn-welcome.svg" alt="Explore">
+            </a>
+            
+        </footer>
+    </main>
+    <script src="../js/jquery-3.7.1.min.js"></script>
+    <script src="../js/owl.carousel.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('.owl-carousel').owlCarousel({
+                loop: true,
+                margin: 10,
+                nav: true,
+                responsive: {
+                    0: {
+                        items: 1
+                    }
+                    
+                }
+            })
+        })
+    </script>
+</body>
+
+</html>
