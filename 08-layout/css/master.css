@@ -42,7 +42,7 @@ main.welcome {
       flex-direction: column;
       justify-items: center;
       img{
-          width: 280px;
+          width: 260px;
           margin: auto;
       }
   
@@ -71,7 +71,7 @@ main.welcome {
       align-items: center;
       a:is(:link, visited){
           background: url(../images/btn-link.png) no-repeat;
-          height: 7px;
+          height: 51px;
           display: flex;
           justify-content: center;
           align-items: center;
