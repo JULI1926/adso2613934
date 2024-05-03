@@ -16,11 +16,51 @@
 
 <body>
     <main class="catalogue">
-        <header>
+        <header class="logo-catalogue">
             <img src="../images/logo-welcome.svg" alt="logo">
         </header>
+        <section class="filter">
+            <input type="text" placeholder="Filter">            
+            <img src="../images/mdi_filter.png" alt="">
+        </section>
+        <h2>Sports</h2>
+        <section class="slider owl-carousel owl-theme">        
+
+            <img src="../images/slide01.png" alt="Slide01">
+            <img src="../images/slide02.png" alt="Slide02">
+            <img src="../images/slide03.png" alt="Slide03">
+            <img src="../images/slide04.png" alt="Slide04">
+            <img src="../images/slide05.png" alt="Slide05"> 
+
+        </section>
+        <h2>Shutter</h2>
+        <section class="slider owl-carousel owl-theme">        
+
+            <img src="../images/slide01.png" alt="Slide01">
+            <img src="../images/slide02.png" alt="Slide02">
+            <img src="../images/slide03.png" alt="Slide03">
+            <img src="../images/slide04.png" alt="Slide04">
+            <img src="../images/slide05.png" alt="Slide05"> 
+
+        </section>         
     </main>
     <script src="../js/jquery-3.7.1.min.js"></script>
     <script src="../js/owl.carousel.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('.owl-carousel').owlCarousel({
+                loop: true,
+                margin: 10,
+                nav: true,
+                dots: false,
+                responsive: {
+                    0: {
+                        items: 2
+                    }
+                    
+                }
+            })
+        })
+    </script>
 </body>
-
+</html>
