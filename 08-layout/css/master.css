@@ -264,12 +264,12 @@ main.catalogue {
       input {
         border: none;
         background: url(../images/bg-input-filter.png)no-repeat center,
-          url(../images/ico-filter.png) no-repeat right;        
+          url(../images/ico-filter.png) no-repeat 215px center;        
         color: var(--color-five);
         font-weight: 400px;
         font-size: 20px;
         height: 60px;
-        width: 250px;
+        width: 255px;
         outline: none;
         text-indent: 28px;
 
