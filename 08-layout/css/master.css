@@ -264,14 +264,14 @@ main.catalogue {
       input {
         border: none;
         background: url(../images/bg-input-filter.png)no-repeat center,
-          url(../images/ico-filter.png) no-repeat center;
+          url(../images/ico-filter.png) no-repeat right;        
         color: var(--color-five);
         font-weight: 400px;
         font-size: 20px;
         height: 60px;
-        width: 298px;
+        width: 250px;
         outline: none;
-        text-indent: 16px;
+        text-indent: 28px;
 
         &::placeholder {
           opacity: 0.7;
@@ -294,6 +294,10 @@ main.catalogue {
       }
 
       figure {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
         figcaption {
           color: var(--color-first);
         }
@@ -335,6 +339,7 @@ main.catalogue {
         button.owl-prev {
           span {
             background: url(../images/btn-prev.svg) no-repeat center;
+            transform: translateY(140%);
           }
         }
 
@@ -345,6 +350,7 @@ main.catalogue {
         button.owl-next {
           span {
             background: url(../images/btn-next.svg) no-repeat center;
+            transform: translateY(140%);
           }
         }
 
