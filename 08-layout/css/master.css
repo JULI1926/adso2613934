@@ -362,3 +362,19 @@ main.catalogue {
     }
   }
 }
+
+main.view-game{
+    header {
+      margin-top: 1.4rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      
+    }
+
+    .logo-view-game{
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+    }
+}

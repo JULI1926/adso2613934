@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/fonts.css">
+    <link rel="stylesheet" href="../css/master.css">
+    <link rel="stylesheet" href="../css/reset.css">
+    <link rel="stylesheet" href="../css/owl.theme.default.css">
+    <link rel="stylesheet" href="../css/owl.carousel.min.css">
+</head>
+<body>
+    <main class="view-game">
+        <header class="">
+            <a href="02-Catalogue.html" class="btn-back">
+                 <img src="../images/btn-back.svg" alt="Back">
+            </a>
+            <img src="../images/title-game.svg" alt="Logo" class="logo-top">
+            <svg class="btn-burger" viewBox="0 0 100 100" width="80">
+             <path
+                   class="line top"
+                   d="m 70,33 h -40 c 0,0 -8.5,-0.149796 -8.5,8.5 0,8.649796 8.5,8.5 8.5,8.5 h 20 v -20" />
+             <path
+                   class="line middle"
+                   d="m 70,50 h -40" />
+             <path
+                   class="line bottom"
+                   d="m 30,67 h 40 c 0,0 8.5,0.149796 8.5,-8.5 0,-8.649796 -8.5,-8.5 -8.5,-8.5 h -20 v 20" />
+         </svg>
+         </header>
+         <img src="../images/logo-view.png" alt="" class="logo-view-game">
+         <nav class="nav">            
+            <menu>
+                <a href="login.html">
+                    <img src="../images/ico-login.svg" alt="">
+                    Login
+                </a>
+                <a href="register.html">
+                    <img src="../images/ico-register.svg" alt="">
+                    Register
+                </a>
+                <a href="catalogue.html">
+                    <img src="../images/ico-catalogue.svg" alt="">
+                    Catalogue
+                </a>
+            </menu>           
+        </nav>
+    </main>
+    <script src="../js/jquery-3.7.1.min.js"></script>
+    <script>        
+        $('header').on('click', '.btn-burger', function(){
+            $(this).toggleClass('active')
+            $('.nav').toggleClass('active')
+        })
+
+    </script>
+</body>
+</html>
