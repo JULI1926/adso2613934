@@ -441,11 +441,14 @@ main.register{
     justify-content: space-between;
     align-items: center;
     
+    
   }
   .form-group {
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: relative;
+    margin-bottom: 2.3rem;
+    margin-left: 45px;
   }
   footer {
     display: flex;
@@ -458,9 +461,9 @@ main.register{
       display: flex;
       justify-content: center;
       align-items: center;
-      margin-top: 1.2rem;
+      margin-top: 1rem;
       transition: all 0.2s ease-in;
-      width: 290px;
+      width: 300px;
     }
 
     a:is(:hover) {
@@ -500,6 +503,12 @@ main.register{
     width: 320px; /* Ajusta el ancho */
     height: 60px; /* Ajusta la altura */
     border-radius: 20px; /* Ajusta el radio del borde */
-    border: 1px solid; /* Ajusta el borde */
+    border: 1px solid; /* Ajusta el borde */    
+    
+  } 
+  .title-input {
+    margin-top: 4px; /* Ajusta este valor a lo que necesites */
   }
+ 
+    
 }
