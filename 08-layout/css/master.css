@@ -1,10 +1,11 @@
 :root {
-  --ff-heading: "Russo One", sans-serif;
+  --ff-heading: "Oswald", sans-serif;
   --ff-body: "Poppins", sans-serif;
-  --color-first: #23234b;
+  --color-first: #5A311B;
   --color-second: #06cfce;
   --color-third: #d3167c;
   --color-fourth: #ececed;
+  --color-five: #0d0d0d;
 }
 
 body:after {
@@ -50,7 +51,7 @@ body {
           fill: none;
           transition: stroke-dasharray 400ms,
             stroke-dashoffset 400ms;
-          stroke: var(--color-first);
+          stroke: var(--color-five);
           stroke-width: 4;
           stroke-linecap: round;
         }
@@ -363,7 +364,7 @@ main.catalogue {
   }
 }
 
-main.view-game{
+/* main.view-game{
     header {
       margin-top: 1.4rem;
       display: flex;
@@ -373,8 +374,132 @@ main.view-game{
     }
 
     .logo-view-game{
+      margin-top: 25px;
       display: block;
       margin-left: auto;
       margin-right: auto;
     }
+
+    .logo-top{      
+      font-family: var(--ff-heading);
+    }
+} */
+
+main.view-game{
+  header {
+    margin-top: 1.4rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    
+  }
+
+  section {
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+      gap: 1rem;
+      justify-content: center;
+      article {
+          display: flex;
+          flex-direction: column;
+          gap: 0.9rem;
+          width: 296px;
+          div.row {
+              display: flex;
+              align-items: center;                
+              justify-content: space-between;
+              div.column {
+                  h4 {
+                      font-family: var(--ff-heading);
+                      color: var(--color-first);
+                      font-size: 20px;                        
+                  }
+              }
+              p {
+                  font-family: var(--ff-body);
+                  color: var(--color-five);
+                  font-size: 16px;
+                  line-height: 1.4rem;
+                  text-align: justify;
+                  &.price {
+                      color: var(--color-five);
+                      font-weight: 400;
+                      font-size: 30px;
+                  }
+              }
+          }
+      }
+  }
+}
+
+main.register{
+  header {
+    margin-top: 1.4rem;
+    margin-bottom: 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    
+  }
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    a:is(:link, visited) {
+      background: url(../images/register-link.png) no-repeat;
+      height: 51px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-top: 1.2rem;
+      transition: all 0.2s ease-in;
+      width: 290px;
+    }
+
+    a:is(:hover) {
+      background: url(../images/register-hover.png) no-repeat center;
+      transform: scale(1) translate(-4px);
+    }
+
+    a:is(:active) {
+      background: url(../images/register-active.png) no-repeat center;
+    }
+  }
+  .photo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 3rem;
+    position: relative; /* Agrega esto */
+  }
+  
+  .photo img {
+    position: relative; /* Agrega esto */
+    z-index: 1; /* Agrega esto */
+  }
+  
+  .photo input[type="file"] {
+    opacity: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+    z-index: 2; /* Agrega esto */
+  }
+
+  input[type="text"], input[type="email"], input[type="password"] {
+    width: 320px; /* Ajusta el ancho */
+    height: 60px; /* Ajusta la altura */
+    border-radius: 20px; /* Ajusta el radio del borde */
+    border: 1px solid; /* Ajusta el borde */
+  }
 }

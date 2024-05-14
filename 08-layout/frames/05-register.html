@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game App Welcome</title>
+    <link rel="stylesheet" href="../css/fonts.css">
+    <link rel="stylesheet" href="../css/master.css">
+    <link rel="stylesheet" href="../css/reset.css">   
+    
+
+</head>
+
+<body>
+    <main class="register">
+        <header>
+            <div></div>
+            <h1 class="title-register">Register</h1>
+            <a href="02-Catalogue.html">
+                <img src="../images/close-register.png" alt="">
+            </a>
+        </header> 
+        <div class="photo">
+            <img src="../images/upload-photo.png" alt="upload photo">
+            <input type="file" id="upload" style="opacity: 0; position: absolute; top: 0; left: 0; width: 100%; height: 100%;" />
+        </div>
+        
+        <form action="procesar_registro.php" method="post">
+            <div class="form-group">
+                <div>
+                    <label for="fullname">
+                        <span class="icon"><img src="../images/name-icon.png" alt="Icono de Nombre Completo"></span>
+                        FullName:
+                    </label>
+                </div>
+                <div>
+                    <input type="text" id="fullname" name="fullname" required>
+                </div>
+            </div>
+            <div class="form-group">
+                <div>
+                    <label for="email">
+                        <span class="icon"><img src="../images/email-icon.png" alt="Icono de Correo Electrónico"></span>
+                        Email:
+                    </label>
+                </div>
+                <div>
+                    <input type="email" id="email" name="email" required>
+                </div>
+            </div>
+            <div class="form-group">
+                <div>
+                    <label for="password">
+                        <span class="icon"><img src="../images/password-icon.png" alt="Icono de Contraseña"></span>
+                        Password:
+                    </label>
+                </div>
+                <div>
+                    <input type="password" id="password" name="password" required>
+                </div>
+            </div>
+            <footer>
+                <a href="" class="btn btn-register">
+                    <img src="../images/Register.svg" width=100px height=auto alt="explore">
+                </a>
+                
+            </footer>
+        </form>
+    </main>
+</body>
+
+
