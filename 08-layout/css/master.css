@@ -563,4 +563,13 @@ main.login {
     justify-content: center;
     align-items: center;
   }
+  .sign-up {
+    display: flex;
+    margin-top: 4rem;
+    justify-content: center;
+    align-items: center;
+    font-family: var(--ff-body);    
+     /* Esto asegura que el div ocupe toda la altura de la vista */
+    font-size: 24px;
+}
 }
