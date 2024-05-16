@@ -503,6 +503,7 @@ main.register {
   }
   .title-input {
     margin-bottom: 4px; /* Ajusta este valor a lo que necesites */
+    
   }
 }
 
@@ -553,6 +554,7 @@ main.login {
     height: 60px; /* Ajusta la altura */
     border-radius: 20px; /* Ajusta el radio del borde */
     border: 1px solid; /* Ajusta el borde */
+    padding-left: 10px;
   }
 
   footer {   
@@ -571,5 +573,16 @@ main.login {
     font-family: var(--ff-body);    
      /* Esto asegura que el div ocupe toda la altura de la vista */
     font-size: 24px;
-}
+  }
+  .title-input {
+    position: relative;
+  } 
+
+  .password-icon {
+      position: absolute;
+      right: 35px;
+      top: 50%;
+      transform: translateY(-50%);
+      cursor: pointer;
+  }
 }
