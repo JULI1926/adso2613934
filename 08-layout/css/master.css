@@ -297,6 +297,7 @@ main.catalogue {
         flex-direction: column;
         align-items: center;
         gap: 10px;
+
         figcaption {
           color: var(--color-first);
         }
@@ -396,15 +397,18 @@ main.view-game {
     flex-direction: column;
     gap: 1rem;
     justify-content: center;
+
     article {
       display: flex;
       flex-direction: column;
       gap: 0.9rem;
       width: 296px;
+
       div.row {
         display: flex;
         align-items: center;
         justify-content: space-between;
+
         div.column {
           h4 {
             font-family: var(--ff-heading);
@@ -412,12 +416,14 @@ main.view-game {
             font-size: 20px;
           }
         }
+
         p {
           font-family: var(--ff-body);
           color: var(--color-five);
           font-size: 16px;
           line-height: 1.4rem;
           text-align: justify;
+
           &.price {
             color: var(--color-five);
             font-weight: 400;
@@ -437,6 +443,7 @@ main.register {
     justify-content: space-between;
     align-items: center;
   }
+
   .form-group {
     display: flex;
     flex-direction: column;
@@ -444,6 +451,7 @@ main.register {
     margin-bottom: 2.3rem;
     margin-left: 45px;
   }
+
   footer {
     display: flex;
     justify-content: center;
@@ -469,17 +477,21 @@ main.register {
       background: url(../images/register-active.png) no-repeat center;
     }
   }
+
   .photo {
     display: flex;
     align-items: center;
     justify-content: center;
     margin-bottom: 3rem;
-    position: relative; /* Agrega esto */
+    position: relative;
+    /* Agrega esto */
   }
 
   .photo img {
-    position: relative; /* Agrega esto */
-    z-index: 1; /* Agrega esto */
+    position: relative;
+    /* Agrega esto */
+    z-index: 1;
+    /* Agrega esto */
   }
 
   .photo input[type="file"] {
@@ -490,20 +502,31 @@ main.register {
     width: 100%;
     height: 100%;
     cursor: pointer;
-    z-index: 2; /* Agrega esto */
+    z-index: 2;
+    /* Agrega esto */
   }
 
   input[type="text"],
   input[type="email"],
   input[type="password"] {
-    width: 320px; /* Ajusta el ancho */
-    height: 60px; /* Ajusta la altura */
-    border-radius: 20px; /* Ajusta el radio del borde */
-    border: 1px solid; /* Ajusta el borde */
+    width: 320px;
+    /* Ajusta el ancho */
+    height: 60px;
+    /* Ajusta la altura */
+    border-radius: 20px;
+    /* Ajusta el radio del borde */
+    border: 1px solid;
+    /* Ajusta el borde */
   }
+
   .title-input {
-    margin-bottom: 4px; /* Ajusta este valor a lo que necesites */
-    
+    margin-bottom: 4px;
+    /* Ajusta este valor a lo que necesites */
+
+  }
+  .empty-div {
+    width: 50px;    
+    height: 50px;    
   }
 }
 
@@ -512,9 +535,10 @@ main.login {
     margin-top: 1.4rem;
     margin-bottom: 2rem;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
   }
+
   .form-group {
     display: flex;
     flex-direction: column;
@@ -522,6 +546,7 @@ main.login {
     margin-top: 2rem;
     margin-left: 45px;
   }
+
   footer {
     display: flex;
     justify-content: center;
@@ -547,42 +572,65 @@ main.login {
       background: url(../images/register-active.png) no-repeat center;
     }
   }
+
   input[type="text"],
   input[type="email"],
   input[type="password"] {
-    width: 320px; /* Ajusta el ancho */
-    height: 60px; /* Ajusta la altura */
-    border-radius: 20px; /* Ajusta el radio del borde */
-    border: 1px solid; /* Ajusta el borde */
+    width: 320px;
+    /* Ajusta el ancho */
+    height: 60px;
+    /* Ajusta la altura */
+    border-radius: 30px;
+    /* Ajusta el radio del borde */
+    border: 0.5px solid;
+    /* Ajusta el borde */
     padding-left: 10px;
   }
 
-  footer {   
-    
-    width: 100%; /* Asegúrate de que el footer tenga el ancho completo */
+  footer {
+
+    width: 100%;
+    /* Asegúrate de que el footer tenga el ancho completo */
     margin-top: 2rem;
     display: flex;
     justify-content: center;
     align-items: center;
   }
-  .sign-up {
+
+  .sign-up, .password-recovery {
     display: flex;
     margin-top: 4rem;
     justify-content: center;
     align-items: center;
-    font-family: var(--ff-body);    
-     /* Esto asegura que el div ocupe toda la altura de la vista */
+    font-family: var(--ff-body);
+    /* Esto asegura que el div ocupe toda la altura de la vista */
     font-size: 24px;
   }
+
   .title-input {
     position: relative;
-  } 
+  }
 
   .password-icon {
-      position: absolute;
-      right: 35px;
-      top: 50%;
-      transform: translateY(-50%);
-      cursor: pointer;
+    position: absolute;
+    right: 35px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+  }
+
+  .image-name-login {
+    width: 70px;
+    height: 70px;
+  }
+
+  .title-register {
+    display: block;
+    margin: 0 auto;
+  }
+
+  .empty-div {
+    width: 50px;    
+    height: 50px;    
   }
 }

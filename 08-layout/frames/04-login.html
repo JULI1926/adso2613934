@@ -12,7 +12,7 @@
   <body>
     <main class="login">
       <header>
-        <div></div>
+        <div class="empty-div"></div>
         <h1 class="title-register">Login</h1>
         <svg class="btn-burger" viewBox="0 0 100 100" width="80">
           <path
@@ -43,7 +43,7 @@
         </menu>
       </nav>
 
-      <form action="procesar_login.php" method="post">
+      <form action="dashboard.html" method="get">
         <div class="form-group">
           <div>
             <label for="fullname">
@@ -59,7 +59,7 @@
             <input
               type="email"
               id="fullname"
-              name="fullname"
+              name="email"
               placeholder="Enter your email"
               required
             />
@@ -100,11 +100,15 @@
               width="100px"
               height="auto"
               alt="explore"
+              class="image-name-login"
             />
           </a>
         </footer>
         <div class="sign-up">
           <p>New User? <a href="05-register.html">Sign Up</a></p>
+        </div>
+        <div class="password-recovery">
+          <p>Forgot Password? <a href="">Recover</a></p>
         </div>
       </form>
     </main>
