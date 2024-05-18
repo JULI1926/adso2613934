@@ -524,9 +524,10 @@ main.register {
     /* Ajusta este valor a lo que necesites */
 
   }
+
   .empty-div {
-    width: 50px;    
-    height: 50px;    
+    width: 50px;
+    height: 50px;
   }
 }
 
@@ -597,7 +598,8 @@ main.login {
     align-items: center;
   }
 
-  .sign-up, .password-recovery {
+  .sign-up,
+  .password-recovery {
     display: flex;
     margin-top: 4rem;
     justify-content: center;
@@ -630,7 +632,65 @@ main.login {
   }
 
   .empty-div {
-    width: 50px;    
-    height: 50px;    
+    width: 50px;
+    height: 50px;
   }
+}
+
+main.dashboard {
+  /* display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap; */
+
+  header {
+    margin-top: 1.4rem;
+    margin-bottom: 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+
+  .empty-div {
+    width: 50px;
+    height: 50px;
+  }
+
+  .title-input {
+    position: relative;
+  }
+
+  .title-dashboard {
+    display: block;
+    margin: 0 auto;
+  }
+
+  .module {
+    width: 300px;    
+    height: 150px; 
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-around;
+    border: 0.5px solid #000;
+  }
+
+  .modules-container {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+  }
+
+  .module img {
+    /* Aquí puedes agregar estilos para el logo si es necesario */
+  }
+
+  .module h2 {
+    /* Aquí puedes agregar estilos para el nombre del módulo si es necesario */
+  }
+
+  .module button {
+    /* Aquí puedes agregar estilos para el botón si es necesario */
+  }
+
 }
