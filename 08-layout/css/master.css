@@ -703,12 +703,12 @@ main.dashboard {
         align-items: center;
         justify-content: center;
         h2 {
-          color: var(--color-first);
+          color: var(--color-five);
           font-family: var(--ff-heading);
           font-size: 20px;
         }
         span {
-          color: var(--color-first);
+          color: var(--color-five);
           font-size: 14px;
           font-weight: 400;
         }
@@ -749,3 +749,7 @@ main.dashboard {
     }
   }
 }
+
+/* ------------------- */
+/*07- module users*/
+/* ------------------- */
