@@ -23,6 +23,10 @@
                     d="m 30,67 h 40 c 0,0 8.5,0.149796 8.5,-8.5 0,-8.649796 -8.5,-8.5 -8.5,-8.5 h -20 v 20" />
             </svg>
         </header> 
+        <!--menu-login-->
+        <nav id="menu-dashboard" class="nav"></nav>
+
+        </nav>
         <div class="modules-container">
             <div class="module" id="users">
                 <img src="ruta/al/logo/users.png" alt="Logo de Users">
@@ -47,6 +51,10 @@
         $("header").on("click", ".btn-burger", function () {
             $(this).toggleClass("active");
             $(".nav").toggleClass("active");
+        });
+
+        $(document).ready(function () {
+            $("#menu-dashboard").load("menu-dashboard.html");
         });
     </script>
 </body>

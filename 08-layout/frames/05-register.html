@@ -17,57 +17,102 @@
         <header>
             <div class="empty-div"></div>
             <h1 class="title-register">Register</h1>
-            <a href="02-Catalogue.html">
-                <img src="../images/close-register.png" alt="">
-            </a>
-        </header> 
-        <div class="photo">
-            <img src="../images/upload-photo.png" alt="upload photo">
-            <input type="file" id="upload" style="opacity: 0; position: absolute; top: 0; left: 0; width: 100%; height: 100%;" />
-        </div>
+            <svg class="btn-burger" viewBox="0 0 100 100" width="80">
+                <path class="line top" d="m 70,33 h -40 c 0,0 -8.5,-0.149796 -8.5,8.5 0,8.649796 8.5,8.5 8.5,8.5 h 20 v -20" />
+                <path class="line middle" d="m 70,50 h -40" />
+                <path class="line bottom"
+                  d="m 30,67 h 40 c 0,0 8.5,0.149796 8.5,-8.5 0,-8.649796 -8.5,-8.5 -8.5,-8.5 h -20 v 20" />
+            </svg>
+        </header>
+        <nav id="menu-login" class="nav"></nav>
+
+        </nav> 
         
-        <form action="procesar_registro.php" method="post">
-            <div class="form-group">
-                <div>
-                    <label for="fullname">
-                        <span class="icon"><img src="../images/name-icon.png" alt="Icono de Nombre Completo"></span>
-                        FullName:
-                    </label>
+        <section class="scroll">
+            <form action="06-dashboard.html" method="get">
+                <div class="form-grup">
+                    <div class="photo">
+                        <img src="../images/upload-photo.png" alt="upload photo">
+                        <input type="file" id="upload" style="opacity: 0; position: absolute; top: 0; left: 0; width: 100%; height: 100%;" />
+                    </div>
                 </div>
-                <div class="title-input">
-                    <input type="text" id="fullname" name="fullname" placeholder="Introduzca su Nombre" required>
+                <div class="form-group">
+                    <div>
+                        <label for="fullname">
+                            <span class="icon"><img src="../images/name-icon.png" alt="Icono de Nombre Completo"></span>
+                            FullName:
+                        </label>
+                    </div>
+                    <div class="title-input">
+                        <input type="text" id="fullname" name="fullname" placeholder="Introduzca su Nombre" required>
+                    </div>
                 </div>
-            </div>
-            <div class="form-group">
-                <div>
-                    <label for="email">
-                        <span class="icon"><img src="../images/email-icon.png" alt="Icono de Correo Electrónico"></span>
-                        Email:
-                    </label>
+                <div class="form-group">
+                    <div>
+                        <label for="email">
+                            <span class="icon"><img src="../images/email-icon.png" alt="Icono de Correo Electrónico"></span>
+                            Email:
+                        </label>
+                    </div>
+                    <div class="title-input">
+                        <input type="email" id="email" name="email" placeholder="Introduzca su Email" >
+                    </div>
                 </div>
-                <div class="title-input">
-                    <input type="email" id="email" name="email" placeholder="Introduzca su Email" >
+                <div class="form-group">
+                    <div>
+                        <label for="phone number">
+                            <span class="icon"><img src="../images/phone-icon.png" alt="Icono de Correo Electrónico"></span>
+                            Phone Number:
+                        </label>
+                    </div>
+                    <div class="title-input">
+                        <input type="number" id="phone-number" name="phone-number" placeholder="Introduzca su Numero" >
+                    </div>
                 </div>
-            </div>
-            <div class="form-group">
-                <div>
-                    <label for="password">
-                        <span class="icon"><img src="../images/password-icon.png" alt="Icono de Contraseña"></span>
-                        Password:
-                    </label>
+                <div class="form-group">
+                    <div>
+                        <label for="birth date">
+                            <span class="icon"><img src="../images/icon-date.png" alt="Icono de Correo Electrónico"></span>
+                            Birth Date:
+                        </label>
+                    </div>
+                    <div class="title-input">
+                        <input type="date" id="bith-date" name="birth-date" placeholder="Introduzca su Numero" >
+                    </div>
                 </div>
-                <div class="title-input">
-                    <input type="password" id="password" name="password" required placeholder="Introduzca su Password">
+                <div class="form-group">
+                    <div>
+                        <label for="password">
+                            <span class="icon"><img src="../images/password-icon.png" alt="Icono de Contraseña"></span>
+                            Password:
+                        </label>
+                    </div>
+                    <div class="title-input">
+                        <input type="password" id="password" name="password" required placeholder="Introduzca su Password">
+                    </div>
                 </div>
-            </div>
-            <footer>
-                <a href="04-login.html" class="btn btn-register">
-                    <img src="../images/Register.svg" width=100px height=auto alt="explore">
-                </a>
-                
-            </footer>
-        </form>
+                <footer>
+                    <a href="04-login.html" class="btn btn-register">
+                        <img src="../images/Register.svg" width=100px height=auto alt="explore">
+                    </a>
+                    
+                </footer>
+            </form>
+        </section>
     </main>
+    <script src="../js/jquery-3.7.1.min.js"></script>
+    <script src="../js/owl.carousel.min.js"></script>
+    <script>
+        $("header").on("click", ".btn-burger", function () {
+            $(this).toggleClass("active");
+            $(".nav").toggleClass("active");
+        });
+
+
+        $(document).ready(function () {
+            $("#menu-login").load("menu-login.html");
+        });
+    </script>
 </body>
 
 

@@ -444,6 +444,12 @@ main.register {
     align-items: center;
   }
 
+  section.scroll {
+    scrollbar-width: none; /* Oculta la barra de desplazamiento en Firefox */
+    overflow-y: scroll; /* Permite el desplazamiento vertical si el contenido excede la altura del contenedor */
+    height: 640px; /* Establece una altura fija para el contenedor */
+  }
+
   .form-group {
     display: flex;
     flex-direction: column;
@@ -508,7 +514,9 @@ main.register {
 
   input[type="text"],
   input[type="email"],
-  input[type="password"] {
+  input[type="password"],
+  input[type="number"],
+  input[type="date"] {
     width: 320px;
     /* Ajusta el ancho */
     height: 60px;
@@ -641,6 +649,8 @@ main.dashboard {
   /* display: flex;
   justify-content: space-around;
   flex-wrap: wrap; */
+  scrollbar-width: none;
+  overflow: scroll;
 
   header {
     margin-top: 1.4rem;
@@ -650,6 +660,7 @@ main.dashboard {
     align-items: center;
     flex-wrap: wrap;
   }
+  
 
   .empty-div {
     width: 50px;
