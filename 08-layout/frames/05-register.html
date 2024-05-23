@@ -84,11 +84,14 @@
                     <div>
                         <label for="password">
                             <span class="icon"><img src="../images/password-icon.png" alt="Icono de Contraseña"></span>
+                            
                             Password:
                         </label>
                     </div>
                     <div class="title-input">
-                        <input type="password" id="password" name="password" required placeholder="Introduzca su Password">
+                        <input type="password" id="password" name="password" required placeholder="Introduzca su Password"/>
+                        <img src="../images/view-password-icon.png" alt="Icono de Ver Contraseña" class="password-icon"
+                        onclick="togglePasswordVisibility()" />
                     </div>
                 </div>
                 <footer>
@@ -112,6 +115,19 @@
         $(document).ready(function () {
             $("#menu-login").load("menu-login.html");
         });
+
+        function togglePasswordVisibility() {
+            var passwordInput = document.getElementById("password");
+            var passwordIcon = document.querySelector(".password-icon");
+
+            if (passwordInput.type === "password") {
+                passwordInput.type = "text";
+                passwordIcon.src = "../images/view-password-icon.png"; // Cambia a icono de "ocultar contraseña"
+            } else {
+                passwordInput.type = "password";
+                passwordIcon.src = "../images/view-password-icon.png"; // Cambia a icono de "ver contraseña"
+            }
+        }
     </script>
 </body>
 

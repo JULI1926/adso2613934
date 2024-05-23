@@ -484,6 +484,14 @@ main.register {
     }
   }
 
+  .password-icon {
+    position: absolute;
+    right: 35px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+  }
+
   .photo {
     display: flex;
     align-items: center;
@@ -491,6 +499,10 @@ main.register {
     margin-bottom: 3rem;
     position: relative;
     /* Agrega esto */
+  }
+
+  .title-input {
+    position: relative;
   }
 
   .photo img {
@@ -530,7 +542,6 @@ main.register {
   .title-input {
     margin-bottom: 4px;
     /* Ajusta este valor a lo que necesites */
-
   }
 
   .empty-div {
@@ -597,7 +608,6 @@ main.login {
   }
 
   footer {
-
     width: 100%;
     /* Asegúrate de que el footer tenga el ancho completo */
     margin-top: 2rem;
@@ -660,48 +670,82 @@ main.dashboard {
     align-items: center;
     flex-wrap: wrap;
   }
-  
 
   .empty-div {
     width: 50px;
-    height: 50px;
-  }
+    height: 50px; }
 
-  .title-input {
-    position: relative;
-  }
+  
 
   .title-dashboard {
     display: block;
     margin: 0 auto;
   }
 
-  .module {
-    width: 300px;    
-    height: 150px; 
-    flex-direction: column;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: space-around;
-    border: 0.5px solid #000;
-  }
-
-  .modules-container {
+  section {
     display: flex;
-    justify-content: space-around;
-    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+    article.module {
+      background: url(../images/bg-module.png) no-repeat center;
+      height: 150px;
+      width: 300px;
+      display: flex;
+      align-items: center;
+      position: relative;
+      transition: background-color 0.4s ease-in;
+      flex-wrap: wrap;
+      aside {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        h2 {
+          color: var(--color-first);
+          font-family: var(--ff-heading);
+          font-size: 20px;
+        }
+        span {
+          color: var(--color-first);
+          font-size: 14px;
+          font-weight: 400;
+        }
+      }
+      aside:first-of-type {
+        padding-inline: 1rem;
+      }
+      a:is(:link, :visited) {
+        background: url(../images/btn-view.png) no-repeat center;
+        color: var(--color-fourth);
+        height: 30px;
+        display: flex;
+        align-items: center;
+        position: absolute;
+        bottom: 10px;
+        right: 0.1px;
+        font-size: 16px;
+        font-weight: 300;
+        justify-content: center;
+        gap: 0.6rem;
+        text-decoration: none;
+        transition: all 0.4s ease-in;
+        width: 120px;
+        img {
+          width: 18px;
+        }
+      }
+      a:is(:hover) {
+        background: url(../images/btn-view-hover.png) no-repeat center;
+        transform: scale(1.02) translateY(-4px);
+      }
+      a:is(:active) {
+        background: url(../images/btn-view-active.png) no-repeat center;
+      }
+    }
+    article.module:hover {
+      background: url(../images/bg-module-hover.png) no-repeat center;
+    }
   }
-
-  .module img {
-    /* Aquí puedes agregar estilos para el logo si es necesario */
-  }
-
-  .module h2 {
-    /* Aquí puedes agregar estilos para el nombre del módulo si es necesario */
-  }
-
-  .module button {
-    /* Aquí puedes agregar estilos para el botón si es necesario */
-  }
-
 }
