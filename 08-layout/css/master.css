@@ -454,7 +454,7 @@ main.register {
     display: flex;
     flex-direction: column;
     align-items: relative;
-    margin-bottom: 2.3rem;
+    margin-bottom: 1rem;
     margin-left: 45px;
   }
 
@@ -498,49 +498,32 @@ main.register {
     justify-content: center;
     margin-bottom: 3rem;
     position: relative;
-    /* Agrega esto */
+    
   }
 
   .title-input {
     position: relative;
   }
 
-  .photo img {
-    position: relative;
-    /* Agrega esto */
-    z-index: 1;
-    /* Agrega esto */
+  
+  input {
+    width: 320px; /* Ajusta el ancho */
+    height: 50px; /* Ajusta la altura */
+    border-radius: 20px; /* Ajusta el radio del borde */
+    border: 1px solid; /* Ajusta el borde */
+    padding: 0 20px 0 20px;
   }
 
-  .photo input[type="file"] {
-    opacity: 0;
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    cursor: pointer;
-    z-index: 2;
-    /* Agrega esto */
-  }
-
-  input[type="text"],
-  input[type="email"],
-  input[type="password"],
-  input[type="number"],
-  input[type="date"] {
-    width: 320px;
-    /* Ajusta el ancho */
-    height: 60px;
-    /* Ajusta la altura */
-    border-radius: 20px;
-    /* Ajusta el radio del borde */
-    border: 1px solid;
-    /* Ajusta el borde */
+  .title-content-register{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 10px;
   }
 
   .title-input {
     margin-bottom: 4px;
+
     /* Ajusta este valor a lo que necesites */
   }
 
@@ -548,6 +531,7 @@ main.register {
     width: 50px;
     height: 50px;
   }
+  
 }
 
 main.login {
@@ -562,9 +546,9 @@ main.login {
   .form-group {
     display: flex;
     flex-direction: column;
-    align-items: relative;
-    margin-top: 2rem;
+    align-items: relative;    
     margin-left: 45px;
+    
   }
 
   footer {
