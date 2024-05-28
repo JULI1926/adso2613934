@@ -13,12 +13,13 @@
 </head>
 
 <body>
-    <main class="register">
+    <main class="adduser">
         <header>
             <a href="users.html" class="btn-back">
-                <img src="../images/btn-back.svg" alt="Back" />
+                <img src="../images/btn-back.svg" alt="Back">
             </a>
-            <h1 class="title-register">View User</h1>
+            <div class="empty-div"></div>
+            <h1 class="title-register">ADD USER</h1>
             <svg class="btn-burger" viewBox="0 0 100 100" width="80">
                 <path class="line top"
                     d="m 70,33 h -40 c 0,0 -8.5,-0.149796 -8.5,8.5 0,8.649796 8.5,8.5 8.5,8.5 h 20 v -20" />
@@ -28,7 +29,7 @@
             </svg>
         </header>
 
-        <nav id="menu-dashboard" class="nav"></nav>
+        <nav id="menu-login" class="nav"></nav>
 
         </nav>
 
@@ -36,11 +37,9 @@
             <form action="06-dashboard.html" method="get">
                 <div class="photo">
                     <div class="form-group">
-                        <div class="view-image">
-
-                        </div>
+                        <img id="upload" class="mask" src="../images/bg-upload-photo.svg" alt="Photo">
                         <img class="border" src="../images/borde.svg" alt="Photo">
-
+                        <input id="photo" type="file" name="photo" >
                     </div>
                 </div>
                 <div class="form-group">
@@ -51,8 +50,7 @@
                         </label>
                     </div>
                     <div class="title-input">
-                        <input type="text" id="fullname" name="fullname" placeholder="" value="Jeremías Springfield"
-                            readonly>
+                        <input type="text" id="fullname" name="fullname" placeholder="Introduzca su Nombre" required>
                     </div>
                 </div>
                 <div class="form-group">
@@ -64,8 +62,7 @@
                         </label>
                     </div>
                     <div class="title-input">
-                        <input type="email" id="email" name="email" placeholder="" value="schoolspringfield@gmail.com"
-                            readonly>
+                        <input type="email" id="email" name="email" placeholder="Introduzca su Email">
                     </div>
                 </div>
                 <div class="form-group">
@@ -77,7 +74,7 @@
                         </label>
                     </div>
                     <div class="title-input">
-                        <input type="number" id="phone-number" name="phone-number" value="7777777" readonly>
+                        <input type="number" id="phone-number" name="phone-number" placeholder="Introduzca su Numero">
                     </div>
                 </div>
                 <div class="form-group">
@@ -89,11 +86,30 @@
                         </label>
                     </div>
                     <div class="title-input">
-                        <input type="date" id="bith-date" name="birth-date" placeholder="" value="1991-09-26" readonly>
+                        <input type="date" id="bith-date" name="birth-date" placeholder="Introduzca su Numero">
                     </div>
                 </div>
+                <div class="form-group">
+                    <div>
+                        <label class="title-content-register" for="password">
+                            <span class="icon"><img src="../images/password-icon.png" alt="Icono de Contraseña"></span>
 
+                            Password:
+                        </label>
+                    </div>
+                    <div class="title-input">
+                        <input type="password" id="password" name="password" required
+                            placeholder="Introduzca su Password" />
+                        <img src="../images/view-password-icon.png" alt="Icono de Ver Contraseña" class="password-icon"
+                            onclick="togglePasswordVisibility()" />
+                    </div>
+                </div>
+                <footer>
+                    <a href="04-login.html" class="btn btn-register" >
+                        <img src="../images/add-user.svg" width = "60px" height = "auto" alt="explore" width = "100px" height = "auto" class="image-name-login">
+                    </a>
 
+                </footer>
             </form>
         </section>
     </main>
@@ -106,31 +122,26 @@
         });
 
 
-        $(document).ready(function () {
-            $(".view-image").load("view-user.html");
-        });
-
-
         //----------------------------
 
-        $('.border').click(function (e) {
+        $('.border').click(function(e) {
             $('#photo').click()
-        })
-        $('#photo').change(function (e) {
+         })
+         $('#photo').change(function(e){
             e.preventDefault()
             let reader = new FileReader()
-            reader.onload = function (evt) {
+            reader.onload = function(evt) {
                 $('#upload').attr('src', event.target.result)
             }
             reader.readAsDataURL(this.files[0])
-        })
+         })
 
 
 
 
 
         $(document).ready(function () {
-            $("#menu-dashboard").load("menu-dashboard.html");
+            $("#menu-login").load("menu-login.html");
         });
 
         function togglePasswordVisibility() {
