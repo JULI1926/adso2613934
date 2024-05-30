@@ -14,7 +14,7 @@ body:after {
   overflow: hidden;
   width: 0;
   z-index: -1;
-  content: url(../images/btn-hover.png) url(../images/btn-active.png);
+  content: url(../images/btn-hover.png) url(../images/btn-active.png) url(../images/bg-main.png) url(../images/bg-input-filter.png) url(../images/btn-view.png) url(../images/btn-view-hover.png) url(../images/bg-module-hover.png) url(../images/bg-btn-add.png) url(../images/btn-add-hover.png) url(../images/btn-add-active.png) url(../images/bg-row-odd.png) url(../images/shape-photo-small.svg) url(../images/bg-actions.png) url(../images/bg-row-even.png) url(../images/shape-photo2.svg) url(../images/bg-role.png) url(../images/register-link.png) url(../images/register-hover.png) url(../images/register-active.png) url(../images/shape-photo.svg);
 }
 
 /* General */
