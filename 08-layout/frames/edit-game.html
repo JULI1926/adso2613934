@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View Game</title>
+    <link rel="stylesheet" href="../css/fonts.css">
+    <link rel="stylesheet" href="../css/master.css">
+    <link rel="stylesheet" href="../css/reset.css">
+
+
+</head>
+
+<body>
+    <main class="edit-game">
+        <header>
+            <a href="games.html" class="btn-back">
+                <img src="../images/btn-back.svg" alt="Back">
+            </a>            
+            <h1 class="title-register">EDIT GAME</h1>
+            <svg class="btn-burger" viewBox="0 0 100 100" width="80">
+                <path class="line top"
+                    d="m 70,33 h -40 c 0,0 -8.5,-0.149796 -8.5,8.5 0,8.649796 8.5,8.5 8.5,8.5 h 20 v -20" />
+                <path class="line middle" d="m 70,50 h -40" />
+                <path class="line bottom"
+                    d="m 30,67 h 40 c 0,0 8.5,0.149796 8.5,-8.5 0,-8.649796 -8.5,-8.5 -8.5,-8.5 h -20 v 20" />
+            </svg>
+        </header>
+
+        <nav id="menu-dashboard" class="nav"></nav>
+
+        </nav>
+
+        <section class="scroll">
+            <form action="06-dashboard.html" method="get">
+                <div class="photo">
+                    <div class="form-group">
+                        <img id="upload" class="mask" src="../images/sports-category.gif" alt="Photo">
+                        <img class="border" src="../images/borde.svg" alt="Photo">
+                        <input id="photo" type="file" name="photo" >                        
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div>
+                        <label class="title-content-register" for="fullname">
+                            <span class="icon"><img src="../images/name-icon.png" alt="Icono de Nombre Completo"></span>
+                            Name:
+                        </label>
+                    </div>
+                    <div class="title-input">
+                        <input type="text" id="fullname" name="fullname" placeholder="" value = "Efooball 2024">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div>
+                        <label class="title-content-register" for="fullname">
+                            <span class="icon"><img src="../images/category-add-game.png" alt="Icono de Nombre Completo"></span>
+                            Category:
+                        </label>
+                    </div>
+                    <div class="title-input">
+                        <input class = "name" type="text" id="name" name="name" placeholder="" value="Sports">            
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div>
+                        <label class="title-content-register" for="email">
+                            <span class="icon"><img src="../images/description-icon.png"
+                                    alt="Icono de Correo Electrónico"></span>
+                            Description:
+                        </label>
+                    </div>
+                    <div class="title-input">
+                        <textarea class="description" id="description-category" name="description-category" placeholder="" style="width: 320px; height: 130px; resize: none;">&#10;eFootball 2024 is the latest installment in the popular eFootball gaming franchise, offering immersive virtual soccer experiences for players worldwide. With cutting-edge graphics, realistic gameplay, and innovative features, it sets a new standard for digital sports entertainment, captivating both casual gamers and esports enthusiasts alike</textarea>
+                    </div>
+                </div>  
+                <footer>
+                    <a href="games.html" class="btn btn-register">
+                        <img src="../images/save.svg" width=100px height="auto" alt="explore">
+                    </a>
+
+                </footer>                  
+                
+            </form>
+        </section>
+    </main>
+    <script src="../js/jquery-3.7.1.min.js"></script>
+    <script src="../js/owl.carousel.min.js"></script>
+    <script>
+        $("header").on("click", ".btn-burger", function () {
+            $(this).toggleClass("active");
+            $(".nav").toggleClass("active");
+        });
+
+
+        //----------------------------
+
+        $('.border').click(function(e) {
+            $('#photo').click()
+         })
+         $('#photo').change(function(e){
+            e.preventDefault()
+            let reader = new FileReader()
+            reader.onload = function(evt) {
+                $('#upload').attr('src', event.target.result)
+            }
+            reader.readAsDataURL(this.files[0])
+         })
+
+
+
+
+
+        $(document).ready(function () {
+            $("#menu-dashboard").load("menu-dashboard.html");
+        });
+
+        function togglePasswordVisibility() {
+            var passwordInput = document.getElementById("password");
+            var passwordIcon = document.querySelector(".password-icon");
+
+            if (passwordInput.type === "password") {
+                passwordInput.type = "text";
+                passwordIcon.src = "../images/view-password-icon.png"; // Cambia a icono de "ocultar contraseña"
+            } else {
+                passwordInput.type = "password";
+                passwordIcon.src = "../images/view-password-icon.png"; // Cambia a icono de "ver contraseña"
+            }
+        }
+    </script>
+</body>
