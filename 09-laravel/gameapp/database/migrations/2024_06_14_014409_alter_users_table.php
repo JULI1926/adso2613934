@@ -11,9 +11,9 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema:table('users', function(Blueprint $table){
+        Schema::table('users', function(Blueprint $table){
             //$table->renameColumn('fullname', 'fullname');
-            $table->string('gender')->before('birthdate');
+            $table->string('gender')->after('fullname');
             $table->string('role')->default('Customer')->after('password');
         });
     }
@@ -23,10 +23,10 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema:table('users', function(Blueprint $table){
-            //$table->renameColumn('fullname', 'fullname');
+        Schema::table('users', function(Blueprint $table){
+            $table->renameColumn('fullname', 'fullname');
             $table->string('fullname')->after('gender');
-            $table->dropColumn('gender','role');
+            $table->dropColumn(['gender','role']);
         });
     }
 };
