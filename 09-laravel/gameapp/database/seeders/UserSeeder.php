@@ -19,7 +19,7 @@ class UserSeeder extends Seeder
         $user->document = 1053849706;
         $user->fullname = 'John Wick';
         $user->gender = 'Male';
-        $user->bithdate = '1988-10-07';
+        $user->birthdate = '1988-10-07';
         $user->phone = '3100000001';
         $user->email = 'jhonwick@gmail.com';
         $user->password = bcrypt("micontraseña");
@@ -31,7 +31,7 @@ class UserSeeder extends Seeder
         $user->document = 1053849707;
         $user->fullname = 'Oscar Aristizabal';
         $user->gender = 'Male';
-        $user->bithdate = '1981-10-17';
+        $user->birthdate = '1981-10-17';
         $user->phone = '3100000002';
         $user->email = 'jhonw@gmail.com';
         $user->password = bcrypt("12345");
@@ -43,7 +43,7 @@ class UserSeeder extends Seeder
             'document' => 750000002,
             'fullname' => 'Alanis Morrisete',
             'gender' => 'Female',
-            'bithdate' => '1970-05-10',
+            'birthdate' => '1970-05-10',
             'phone' => '3100000003',
             'email' => 'alanism@gmail.com',
             'password' => bcrypt('12345'),

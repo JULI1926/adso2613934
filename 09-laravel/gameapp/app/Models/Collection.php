@@ -19,4 +19,15 @@ class Collection extends Model
         'game_id',
         'user_id'
      ];
+
+     public function user()
+    {
+        return $this->belongsTo('App\Models\User');
+    }
+
+    public function game()
+    {
+        return $this->belongsTo('App\Models\Game');
+    }
+
 }

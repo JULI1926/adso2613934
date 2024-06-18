@@ -27,4 +27,20 @@ class Game extends Model
         'slider',
         'description'
     ];
+
+
+    public function user()
+    {
+        return $this->belongsTo('App\Models\User');
+    }
+
+    public function Category()
+    {
+        return $this->belongsTo('App\Models\Category');
+    }
+
+    public function collection()
+    {
+        return $this->belongsTo('App\Models\Collection');
+    }
 }

@@ -13,7 +13,7 @@ class Category extends Model
      *
      * @var array<int, string>
      */
-
+    // R
     protected $fillable = [
         'name',
         'image',
@@ -21,4 +21,10 @@ class Category extends Model
         'releasedate',
         'description',
     ];
+
+    //Relac
+    public function games()
+    {
+        return $this->hasMany('App\Models\Game');
+    }
 }
