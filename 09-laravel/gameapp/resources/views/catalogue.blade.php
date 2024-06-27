@@ -1,0 +1,152 @@
+@extends('layouts.app')
+@section('title', 'GameApp - Catalogue')
+@section('classMain', 'catalogue')
+
+@section('content')
+<header class="logo-catalogue">
+    <a href="01-Welcome.html" class="btn-back">
+        <img src="../images/btn-back.svg" alt="Back">
+    </a>
+    <img src="../images/logo-welcome.svg" alt="Logo" class="logo-top">
+    <svg class="btn-burger" viewBox="0 0 100 100" width="80">
+        <path class="line top" d="m 70,33 h -40 c 0,0 -8.5,-0.149796 -8.5,8.5 0,8.649796 8.5,8.5 8.5,8.5 h 20 v -20" />
+        <path class="line middle" d="m 70,50 h -40" />
+        <path class="line bottom" d="m 30,67 h 40 c 0,0 8.5,0.149796 8.5,-8.5 0,-8.649796 -8.5,-8.5 -8.5,-8.5 h -20 v 20" />
+    </svg>
+</header>
+<nav id="menu-login" class="nav">
+
+</nav>
+<section class="scroll">
+    <form action="" method="POST">
+        <input type="text" placeholder="Filter" maxlength="18">
+    </form>
+    <article>
+        <h2><img src="../images/ico-category.svg" alt="">
+            Sports
+        </h2>
+        <div class="owl-carousel owl-theme">
+            <a href="../frames/03-view-game.html">
+                <figure>
+                    <img src="../images/slide-c1-01.png" alt="" class="slide">
+                    FC 24 Mobile
+                </figure>
+            </a>
+            <a href="../frames/03-view-game.html">
+                <figure>
+                    <img src="../images/slide-c1-02.png" alt="" class="slide">
+                    Efootball 2024
+
+                </figure>
+            </a>
+            <a href="../frames/03-view-game.html">
+                <figure>
+                    <img src="../images/slide-c1-03.png" alt="" class="slide">
+                    DLS 2024
+
+                </figure>
+            </a>
+            <a href="../frames/03-view-game.html">
+                <figure>
+                    <img src="../images/slide-c1-04.png" alt="" class="slide">
+                    Penalty Fever
+                </figure>
+            </a>
+        </div>
+    </article>
+    <article>
+        <h2><img src="../images/ico-category.svg" alt="">
+            Shutter
+        </h2>
+        <div class="owl-carousel owl-theme">
+            <a href="../frames/03-view-game.html">
+                <figure>
+                    <img src="../images/slide-c2-01.png" alt="" class="slide">
+                    Valorant
+
+                </figure>
+            </a>
+            <a href="../frames/03-view-game.html">
+                <figure>
+                    <img src="../images/slide-c2-02.png" alt="" class="slide">
+                    Fortnite
+
+                </figure>
+            </a>
+            <a href="../frames/03-view-game.html">
+                <figure>
+                    <img src="../images/slide-c2-03.png" alt="" class="slide">
+                    Doom
+                </figure>
+            </a>
+            <a href="../frames/03-view-game.html">
+                <figure>
+                    <img src="../images/slide-c2-04.png" alt="" class="slide">
+                    CSGO
+                </figure>
+            </a>
+        </div>
+    </article>
+    <article>
+        <h2><img src="../images/ico-category.svg" alt="">
+            Categor
+        </h2>
+        <div class="owl-carousel owl-theme">
+            <a href="../frames/03-view-game.html">
+                <figure>
+                    <img src="../images/slide-c1-01.png" alt="" class="slide">
+                    FC 24 Mobile
+
+                </figure>
+            </a>
+            <a href="../frames/03-view-game.html">
+                <figure>
+                    <img src="../images/slide-c1-02.png" alt="" class="slide">
+                    Title Game
+
+                </figure>
+            </a>
+            <a href="../frames/03-view-game.html">
+                <figure>
+                    <img src="../images/slide-c1-03.png" alt="" class="slide">
+                    Title Game
+
+                </figure>
+            </a>
+        </div>
+    </article>
+</section>
+
+@endsection
+
+@section('js')
+
+<script>
+    $(document).ready(function () {
+            $('.owl-carousel').owlCarousel({
+                center: false,
+                loop: true,
+                margin: -35,
+                nav: true,
+                dots: false,
+                responsive: {
+                    0: {
+                        items: 2
+                    }
+
+                }
+            })
+        })
+
+        $('header').on('click', '.btn-burger', function () {
+            $(this).toggleClass('active')
+            $('.nav').toggleClass('active')
+        })
+
+        $(document).ready(function () {
+            $("#menu-login").load("/menu");
+        });
+</script>
+
+@endsection
+
