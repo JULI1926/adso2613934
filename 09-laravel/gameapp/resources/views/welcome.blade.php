@@ -17,7 +17,7 @@
 </section>
 
 <footer>
-    <a href="02-Catalogue.html" class="btn btn-explore">
+    <a href="/catalogue" class="btn btn-explore">
         <img src="../images/content-btn-welcome.svg" width=100px height=auto alt="explore">
     </a>
 

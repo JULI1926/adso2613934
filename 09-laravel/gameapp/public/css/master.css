@@ -506,35 +506,40 @@ main.register {
   .form-group {
     display: flex;
     flex-direction: column;
-    align-items: relative;
     margin-bottom: 1rem;
     margin-left: 45px;
   }
 
   footer {
-    display: flex;
-    justify-content: center;
-    align-items: center;
 
-    a:is(:link, visited) {
+    button {
+
       background: url(../images/register-link.png) no-repeat;
-      height: 51px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
+      background-size: cover; /* Ajusta según el tamaño de tu imagen */
+      height: 50px;
+      width: 300px;
+      text-align: center;
+      text-decoration: none; /* Elimina subrayado de enlace */
+      color: #fff; /* Color del texto */
+      font-size: 16px; /* Tamaño del texto */
+      font-weight: bold; /* Peso del texto */
+      text-transform: uppercase; /* Transforma el texto a mayúsculas */
+      border: none; /* Quita el borde */
+      cursor: pointer; /* Cambia el cursor al pasar por encima */
       margin-top: 1rem;
       transition: all 0.2s ease-in;
-      width: 300px;
     }
-
-    a:is(:hover) {
+    
+    button:hover {
       background: url(../images/register-hover.png) no-repeat center;
-      transform: scale(1) translate(-4px);
+      transform: scale(1.05) translate(-4px); /* Escala ligeramente más grande y mueve ligeramente a la izquierda */
     }
-
-    a:is(:active) {
+    
+    button:active {
       background: url(../images/register-active.png) no-repeat center;
+      transform: scale(1) translate(-2px); /* Reduce la escala ligeramente y mueve a la izquierda */
     }
+    
   }
 
   .password-icon {
@@ -617,6 +622,7 @@ main.register {
     cursor: pointer;   
     
   }
+
 }
 
 main.login {
@@ -639,25 +645,32 @@ main.login {
     display: flex;
     justify-content: center;
     align-items: center;
+    button {
 
-    a:is(:link, visited) {
       background: url(../images/register-link.png) no-repeat;
-      height: 51px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
+      background-size: cover; /* Ajusta según el tamaño de tu imagen */
+      height: 50px;
+      width: 300px;
+      text-align: center;
+      text-decoration: none; /* Elimina subrayado de enlace */
+      color: #fff; /* Color del texto */
+      font-size: 16px; /* Tamaño del texto */
+      font-weight: bold; /* Peso del texto */
+      text-transform: uppercase; /* Transforma el texto a mayúsculas */
+      border: none; /* Quita el borde */
+      cursor: pointer; /* Cambia el cursor al pasar por encima */
       margin-top: 1rem;
       transition: all 0.2s ease-in;
-      width: 300px;
     }
-
-    a:is(:hover) {
+    
+    button:hover {
       background: url(../images/register-hover.png) no-repeat center;
-      transform: scale(1) translate(-4px);
+      transform: scale(1.05) translate(-4px); /* Escala ligeramente más grande y mueve ligeramente a la izquierda */
     }
-
-    a:is(:active) {
+    
+    button:active {
       background: url(../images/register-active.png) no-repeat center;
+      transform: scale(1) translate(-2px); /* Reduce la escala ligeramente y mueve a la izquierda */
     }
   }
 

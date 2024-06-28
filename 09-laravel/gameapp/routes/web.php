@@ -7,8 +7,13 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+
 Route::get('/menu', function () {
     return view('partials.menu');
+});
+
+Route::get('/menudashboard', function () {
+    return view('partials.menudashboard');
 });
 
 Route::get('/catalogue', function () {
