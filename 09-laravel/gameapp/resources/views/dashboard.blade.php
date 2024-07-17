@@ -26,7 +26,7 @@
         </aside>
         <aside>
             <h2>USERS</h2>
-            <a class="btn-more" href="users.html">
+            <a class="btn-more" href="{{url('users')}}">
                 view
             </a>
         </aside>
