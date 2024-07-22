@@ -511,43 +511,66 @@ main.register {
   }
 
   footer {
-
     button {
+        background: url(../images/register-link.png) no-repeat;
+        color: var(--color-five);
+        font-size: 20px;
+        font-weight: 400;
+        height: 60px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 0.6rem;
+        padding-left: 20px;
+        margin-top: 1.2rem;
+        transition: all 0.1s ease-in;
+        text-decoration: none;
+        width: 300px;
+      }
 
-      background: url(../images/register-link.png) no-repeat;
-      background-size: cover; /* Ajusta según el tamaño de tu imagen */
-      height: 50px;
-      width: 300px;
-      text-align: center;
-      text-decoration: none; /* Elimina subrayado de enlace */
-      color: #fff; /* Color del texto */
-      font-size: 16px; /* Tamaño del texto */
-      font-weight: bold; /* Peso del texto */
-      text-transform: uppercase; /* Transforma el texto a mayúsculas */
-      border: none; /* Quita el borde */
-      cursor: pointer; /* Cambia el cursor al pasar por encima */
-      margin-top: 1rem;
-      transition: all 0.2s ease-in;
-    }
     
     button:hover {
       background: url(../images/register-hover.png) no-repeat center;
-      transform: scale(1.05) translate(-4px); /* Escala ligeramente más grande y mueve ligeramente a la izquierda */
+      transform: scale(1.05) translate(-1px); /* Escala ligeramente más grande y mueve ligeramente a la izquierda */
     }
     
     button:active {
       background: url(../images/register-active.png) no-repeat center;
-      transform: scale(1) translate(-2px); /* Reduce la escala ligeramente y mueve a la izquierda */
+      transform: scale(1) translate(-1px); /* Reduce la escala ligeramente y mueve a la izquierda */
     }
+
+    .btn-register {
+      border: none; /* Elimina el borde */
+      align-items: center;
+      justify-content: center;
+      align-items: center;          
+    }
+
+    .image-name-register {
+      width: 90px;
+      height: 90px;
+      align-items: center;
+      gap: 0.6rem;          
+    }   
     
   }
 
+  .password-input-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+  }
+  
   .password-icon {
     position: absolute;
-    right: 35px;
-    top: 50%;
-    transform: translateY(-50%);
+    right: 37px; /* Ajusta según sea necesario */
     cursor: pointer;
+    height: 37px;
+    width: 37px;
+  }
+  
+  .password-input {
+    flex-grow: 1;
   }
 
   .photo {
@@ -643,34 +666,48 @@ main.login {
 
   footer {
     display: flex;
+    width: 100%;
+    margin-top: 2rem;    
     justify-content: center;
     align-items: center;
     button {
-
-      background: url(../images/register-link.png) no-repeat;
-      background-size: cover; /* Ajusta según el tamaño de tu imagen */
-      height: 50px;
-      width: 300px;
-      text-align: center;
-      text-decoration: none; /* Elimina subrayado de enlace */
-      color: #fff; /* Color del texto */
-      font-size: 16px; /* Tamaño del texto */
-      font-weight: bold; /* Peso del texto */
-      text-transform: uppercase; /* Transforma el texto a mayúsculas */
-      border: none; /* Quita el borde */
-      cursor: pointer; /* Cambia el cursor al pasar por encima */
-      margin-top: 1rem;
-      transition: all 0.2s ease-in;
+      background: url(../images/btn-active.png) no-repeat center;
+        color: var(--color-five);
+        font-size: 20px;
+        font-weight: 400;
+        height: 60px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 0.6rem;
+        padding-left: 12px;
+        margin-top: 1.2rem;
+        transition: all 0.3s ease-in;
+        text-decoration: none;
+        width: 300px;
     }
+
+    .btn-login {
+      border: none; /* Elimina el borde */
+      align-items: center;
+      justify-content: center;        
+    }
+
+    .image-name-login {
+      width: 70px;
+      height: 70px;
+      align-items: center;
+    }   
+    
     
     button:hover {
-      background: url(../images/register-hover.png) no-repeat center;
-      transform: scale(1.05) translate(-4px); /* Escala ligeramente más grande y mueve ligeramente a la izquierda */
+      background: url(../images/btn-link.png) no-repeat center;
+      transform: scale(1.02) translateY(-5px);
+
     }
     
     button:active {
-      background: url(../images/register-active.png) no-repeat center;
-      transform: scale(1) translate(-2px); /* Reduce la escala ligeramente y mueve a la izquierda */
+      background: url(../images/btn-active.png) no-repeat center;
     }
   }
 
@@ -688,14 +725,7 @@ main.login {
     padding-left: 10px;
   }
 
-  footer {
-    width: 100%;
-    /* Asegúrate de que el footer tenga el ancho completo */
-    margin-top: 2rem;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
+  
 
   .sign-up,
   .password-recovery {
@@ -720,10 +750,7 @@ main.login {
     cursor: pointer;
   }
 
-  .image-name-login {
-    width: 70px;
-    height: 70px;
-  }
+  
 
   .title-register {
     display: block;
@@ -2049,6 +2076,8 @@ main.add-category {
     a:is(:active) {
       background: url(../images/register-active.png) no-repeat center;
     }
+
+    
   }
 
   .password-icon {
@@ -2157,7 +2186,7 @@ main.add-category {
   a.btn.btn-register img {
     width: 50px;
     height: auto;
-}
+  }
 }
 
 main.games {

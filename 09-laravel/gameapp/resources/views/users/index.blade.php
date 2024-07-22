@@ -38,7 +38,7 @@
                 <a href="{{ url('users/' .$user->id )}}">
                     <img src="../images/ico-search.svg" alt="Show">
                 </a>
-                <a href="{{ url('users/' .$user->id .'/edit')}}"
+                <a href="{{ url('users/' .$user->id .'/edit') }}">
                     <img src="../images/ico-edit.svg" alt="Edit">
                 </a>
                 <a href="javascript:;">
@@ -49,7 +49,7 @@
     </div>
     @endforeach
     <div class="paginate">
-        {{ $users->links('layouts.paginator')}}
+        {{ $users->links('layouts.navigation') }}
     </div>
 </section>
 @endsection
@@ -63,7 +63,7 @@
         });
 
         $(document).ready(function () {
-            $("#menu-dashboard").load("menu-dashboard.html");
+            $("#menu-dashboard").load("/menudashboard");
         });
 </script>
 @endsection

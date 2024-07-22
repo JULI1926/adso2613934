@@ -9,8 +9,7 @@
     <svg class="btn-burger" viewBox="0 0 100 100" width="80">
         <path class="line top" d="m 70,33 h -40 c 0,0 -8.5,-0.149796 -8.5,8.5 0,8.649796 8.5,8.5 8.5,8.5 h 20 v -20" />
         <path class="line middle" d="m 70,50 h -40" />
-        <path class="line bottom"
-            d="m 30,67 h 40 c 0,0 8.5,0.149796 8.5,-8.5 0,-8.649796 -8.5,-8.5 -8.5,-8.5 h -20 v 20" />
+        <path class="line bottom" d="m 30,67 h 40 c 0,0 8.5,0.149796 8.5,-8.5 0,-8.649796 -8.5,-8.5 -8.5,-8.5 h -20 v 20" />
     </svg>
 </header>
 
@@ -32,8 +31,7 @@
         <div class="form-group">
             <div>
                 <x-input-label for="document" :value="__('Document')" />
-                <x-text-input id="document" class="block mt-1 w-full" type="text" name="document"
-                    :value="old('document')" required autofocus autocomplete="document" />
+                <x-text-input id="document" class="block mt-1 w-full" type="text" name="document" :value="old('document')" required autofocus autocomplete="document" />
                 <x-input-error :messages="$errors->get('document')" class="mt-2" />
             </div>
 
@@ -51,8 +49,7 @@
 
             <div class="mt-4">
                 <x-input-label for="fullname" :value="__('')" />
-                <x-text-input id="fullname" class="block mt-1 w-full" type="text" name="fullname"
-                    :value="old('fullname')" required autofocus autocomplete="fullname" />
+                <x-text-input id="fullname" class="block mt-1 w-full" type="text" name="fullname" :value="old('fullname')" required autofocus autocomplete="fullname" />
                 <x-input-error :messages="$errors->get('fullname')" class="mt-2" />
             </div>
 
@@ -81,8 +78,7 @@
             </div>
             <div class="mt-4">
                 <x-input-label for="birthdate" :value="__('')" />
-                <x-text-input id="birthdate" class="block mt-1 w-full" type="date" name="birthdate"
-                    :value="old('birthdate')" required autofocus autocomplete="birthdate" />
+                <x-text-input id="birthdate" class="block mt-1 w-full" type="date" name="birthdate" :value="old('birthdate')" required autofocus autocomplete="birthdate" />
                 <x-input-error :messages="$errors->get('birthdate')" class="mt-2" />
             </div>
         </div>
@@ -98,8 +94,7 @@
             </div>
             <div class="mt-4">
                 <x-input-label for="phone" :value="__('')" />
-                <x-text-input id="phone" class="block mt-1 w-full" type="text" name="phone" :value="old('phone')"
-                    required autofocus autocomplete="phone" />
+                <x-text-input id="phone" class="block mt-1 w-full" type="text" name="phone" :value="old('phone')" required autofocus autocomplete="phone" />
                 <x-input-error :messages="$errors->get('phone')" class="mt-2" />
             </div>
         </div>
@@ -115,8 +110,7 @@
             </div>
             <div class="mt-4">
                 <x-input-label for="email" :value="__('')" />
-                <x-text-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')"
-                    required autocomplete="username" />
+                <x-text-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autocomplete="username" />
                 <x-input-error :messages="$errors->get('email')" class="mt-2" />
             </div>
 
@@ -134,8 +128,11 @@
             <div class="mt-4">
                 <x-input-label for="password" :value="__('')" />
 
-                <x-text-input id="password" class="block mt-1 w-full" type="password" name="password" required
-                    autocomplete="new-password" />
+                <div class="password-input-container">
+                    <x-text-input id="password" class="block mt-1 w-full" type="password" name="password" required autocomplete="new-password" />
+                    <img src="../images/view-password-icon.png" alt="Icono de Ver Contraseña" class="password-icon" onclick="togglePasswordVisibility('password')" /> 
+                </div>
+                
 
                 <x-input-error :messages="$errors->get('password')" class="mt-2" />
             </div>
@@ -153,16 +150,21 @@
             </div>
             <div class="mt-4">
                 <x-input-label for="password_confirmation" :value="__('')" />
-
-                <x-text-input id="password_confirmation" class="block mt-1 w-full" type="password"
-                    name="password_confirmation" required autocomplete="new-password" />
+                <div class="password-input-container">
+                    <x-text-input id="password_confirmation" class="block mt-1 w-full" type="password" name="password_confirmation" required autocomplete="new-password" />
+                    <img src="../images/view-password-icon.png" alt="Icono de Ver Contraseña" class="password-icon" onclick="togglePasswordVisibility('password_confirmation')" />    
+                </div>
+                
 
                 <x-input-error :messages="$errors->get('password_confirmation')" class="mt-2" />
             </div>
         </div>
 
         <footer>
-            <button type="submit">Registrarse</button>
+            <button type="submit" class="btn btn-register">
+                <img src="../images/Register.svg" width="100px" height="auto" alt="explore" class="image-name-register" />
+            </button>
+
         </footer>
     </form>
 
@@ -172,38 +174,51 @@
 
 @section('js')
 <script>
-    $("header").on("click", ".btn-burger", function () {
+    $("header").on("click", ".btn-burger", function() {
         $(this).toggleClass("active");
         $(".nav").toggleClass("active");
     });
 
-    $('.border').click(function (e) {
+    $('.border').click(function(e) {
         $('#photo').click()
     })
-    $('#photo').change(function (e) {
+    $('#photo').change(function(e) {
         e.preventDefault()
         let reader = new FileReader()
-        reader.onload = function (evt) {
+        reader.onload = function(evt) {
             $('#upload').attr('src', event.target.result)
         }
         reader.readAsDataURL(this.files[0])
     })
 
-    $(document).ready(function () {
-        $("#menu-login").load("menu-login.html");
+    $(document).ready(function() {
+        $("#menu-login").load("/menu");
     });
 
-    function togglePasswordVisibility() {
-        var passwordInput = document.getElementById("password");
-        var passwordIcon = document.querySelector(".password-icon");
+    // function togglePasswordVisibility() {
+    //     var passwordInput = document.getElementById("password");
+    //     var passwordIcon = document.querySelector(".password-icon");
+
+    //     if (passwordInput.type === "password") {
+    //         passwordInput.type = "text";
+    //         passwordIcon.src = "../images/view-password-icon.png"; // Cambia a icono de "ocultar contraseña"
+    //     } else {
+    //         passwordInput.type = "password";
+    //         passwordIcon.src = "../images/view-password-icon.png"; // Cambia a icono de "ver contraseña"
+    //     }
+    // }
+
+        function togglePasswordVisibility(fieldId, iconSelector) {
+        var passwordInput = document.getElementById(fieldId);
+        var passwordIcon = document.querySelector(iconSelector);
 
         if (passwordInput.type === "password") {
             passwordInput.type = "text";
-            passwordIcon.src = "../images/view-password-icon.png"; // Cambia a icono de "ocultar contraseña"
+            passwordIcon.src = "../images/hide-password-icon.png"; // Cambia a icono de "ocultar contraseña"
         } else {
             passwordInput.type = "password";
             passwordIcon.src = "../images/view-password-icon.png"; // Cambia a icono de "ver contraseña"
         }
-    }
+    } 
 </script>
 @endsection
