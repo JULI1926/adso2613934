@@ -27,7 +27,7 @@
         @foreach($users as $user)
         <article class="record">
             <figure class="avatar">
-                <img class="mask" src="../image/{{ $user->photo }}" alt="Photo">
+                <img class="mask" src="{{ $user->photo }}" alt="Photo">
                 <img class="border" src="../images/shape-border-small.svg" alt="Border">
             </figure>
             <aside>

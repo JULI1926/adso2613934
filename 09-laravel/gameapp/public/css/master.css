@@ -1010,6 +1010,14 @@ section {
         background: url(../images/bg-row-even.png) no-repeat center;
     }
 }
+
+
+.pagination .disabled span, .pagination .disabled a, .pagination .disabled a:hover {
+  color: #6c757d;
+  pointer-events: none;
+  background-color: transparent;
+  border-color: transparent;
+}
 div.paginate {
     display: flex;
     align-items: center;
@@ -1033,6 +1041,8 @@ div.paginate {
         transform: scale(1.1) translateX(4px);
     }
 }
+
+
 
   nav.nav {
       align-items: center;

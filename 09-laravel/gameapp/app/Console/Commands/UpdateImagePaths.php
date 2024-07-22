@@ -19,20 +19,21 @@ class UpdateImagePaths extends Command
     {
         $this->info('Actualizando las rutas de las imágenes...');
 
-        $images = DB::table('your_table_name')->get();
+        try {
+            $images = DB::table('users')->get();
 
-        foreach ($images as $image) {
-            // Ajusta según el nombre de tu columna y tabla
-            $correctedUrl = str_replace('\\', '/', $image->image_url);
+            foreach ($images as $image) {
+                $correctedUrl = str_replace('\\', '/', $image->photo);
+                $correctedUrl = str_replace('/image/image', '/image', $correctedUrl);
 
-            // Asegurarse de que la ruta es relativa al directorio público
-            $correctedUrl = str_replace('c/image', 'image', $correctedUrl);
+                DB::table('users')
+                    ->where('id', $image->id)
+                    ->update(['photo' => $correctedUrl]);
+            }
 
-            DB::table('your_table_name')
-                ->where('id', $image->id)
-                ->update(['image_url' => $correctedUrl]);
+            $this->info('Las rutas de las imágenes han sido actualizadas exitosamente.');
+        } catch (\Exception $e) {
+            $this->error('Ha ocurrido un error durante la actualización: ' . $e->getMessage());
         }
-
-        $this->info('Actualización completa.');
     }
 }
