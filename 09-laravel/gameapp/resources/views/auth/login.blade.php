@@ -57,7 +57,7 @@
 
     </footer>
     <div class="sign-up">
-        <p>New User? <a href="05-register.html">Sign Up</a></p>
+        <p>New User? <a href="{{ route('register') }}">Sign Up</a></p>
     </div>
     <div class="password-recovery">
         <p>Forgot Password? <a href="">Recover</a></p>

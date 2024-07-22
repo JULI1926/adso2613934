@@ -671,7 +671,7 @@ main.login {
     justify-content: center;
     align-items: center;
     button {
-      background: url(../images/btn-active.png) no-repeat center;
+      background: url(../images/btn-link.png) no-repeat center;
         color: var(--color-five);
         font-size: 20px;
         font-weight: 400;
@@ -701,7 +701,7 @@ main.login {
     
     
     button:hover {
-      background: url(../images/btn-link.png) no-repeat center;
+      background: url(../images/btn-hover.png) no-repeat center;
       transform: scale(1.02) translateY(-5px);
 
     }
@@ -716,7 +716,7 @@ main.login {
   input[type="password"] {
     width: 320px;
     /* Ajusta el ancho */
-    height: 60px;
+    height: 50px;
     /* Ajusta la altura */
     border-radius: 30px;
     /* Ajusta el radio del borde */
@@ -744,10 +744,12 @@ main.login {
 
   .password-icon {
     position: absolute;
-    right: 35px;
+    right: 38px;
     top: 50%;
     transform: translateY(-50%);
     cursor: pointer;
+    height: 37px;
+    width: 37px;
   }
 
   

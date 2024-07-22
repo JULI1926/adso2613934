@@ -27,7 +27,7 @@
         @foreach($users as $user)
         <article class="record">
             <figure class="avatar">
-                <img class="mask" src="img/{{ $user->photo }}" alt="Photo">
+                <img class="mask" src="../image/{{ $user->photo }}" alt="Photo">
                 <img class="border" src="../images/shape-border-small.svg" alt="Border">
             </figure>
             <aside>
@@ -45,9 +45,10 @@
                     <img src="../images/ico-delete.svg" alt="Delete">
                 </a>
             </figure>
-        </article>        
+        </article>
+        @endforeach        
     </div>
-    @endforeach
+   
     <div class="paginate">
         {{ $users->links('layouts.navigation') }}
     </div>
