@@ -22,8 +22,8 @@ Route::get('/catalogue', function () {
     return view('catalogue');
 });
 
-Route::get('/profile', function () {
-    return view('profile', ['user'=>$user = User::where('id', auth()->id())->first()]);
+Route::get('/profiles', function () {
+    return view('profiles', ['user'=>$user = User::where('id', auth()->id())->first()]);
 });
 
 Route::get('/dashboard', function () {
@@ -31,9 +31,9 @@ Route::get('/dashboard', function () {
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
-    /* Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
-    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy'); */
+    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy'); 
     Route::resources([
         'users' => UserController::class
     ]);

@@ -1,5 +1,5 @@
 <menu>
-    <a href="/profile">
+    <a href="/profiles">
         <img src="../images/ico-profile.svg" alt="" />
         Profile
     </a>

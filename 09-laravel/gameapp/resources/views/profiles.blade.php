@@ -22,37 +22,37 @@
 <section class="scroll">
     <div class="photo">
         <div class="form-group">
-            <img id="upload" class="mask" src="../images/photo-jeremias.jpg" alt="Photo">
+            <img id="upload" class="mask" src="{{$user->photo}}" alt="Photo">
             <img class="border" src="../images/borde.svg" alt="Photo">
         </div>
     </div>
     <div class="personalDate">
         <div class="name">
-            {{user->fullname}}
-        </div>
-
+            {{$user->fullname}}
+        </div>        
         <div class="email">
-            jeremias@Springfield.com
+            {{$user->email}}
         </div>
 
         <div class="rol">
-            Customer
+            {{$user->role}}
         </div>
     </div>
 
     <div class="profileData">
         <div>
-            <div>1.060.849.706</div>
+            <div>{{$user->document}}</div>
             <div>123 456 7890</div>
         </div>
         <div>
             <div>Active</div>
-            <div>Male</div>
+            <div>{{$user->gender}}</div>
         </div>
         <div>
-            <div>1996-05-03</div>
+            <div>{{$user->birthdate}}</div>
             <div>Str 84-86</div>
         </div>
+        
     </div>
 </section>
 @endsection
