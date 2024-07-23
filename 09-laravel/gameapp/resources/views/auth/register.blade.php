@@ -59,13 +59,14 @@
         <div class="form-group">
             <div class="mt-4">
                 <x-input-label for="gender" :value="__('Gender')" />
-                <select id="gender" name="gender" class="block mt-1 w-full" required>
+                <select id="gender" name="gender" class="input_gender" required>
                     <option value="Male">Male</option>
                     <option value="Women">Women</option>
                 </select>
                 <x-input-error :messages="$errors->get('gender')" class="mt-2" />
             </div>
         </div>
+
 
 
         <!-- Birthdate -->
@@ -130,9 +131,9 @@
 
                 <div class="password-input-container">
                     <x-text-input id="password" class="block mt-1 w-full" type="password" name="password" required autocomplete="new-password" />
-                    <img src="../images/view-password-icon.png" alt="Icono de Ver Contraseña" class="password-icon" onclick="togglePasswordVisibility('password')" /> 
+                    <img src="../images/view-password-icon.png" alt="Icono de Ver Contraseña" class="password-icon" onclick="togglePasswordVisibility('password')" />
                 </div>
-                
+
 
                 <x-input-error :messages="$errors->get('password')" class="mt-2" />
             </div>
@@ -144,7 +145,6 @@
             <div>
                 <label class="title-content-register" for="password">
                     <span class="icon"><img src="../images/password-icon.png" alt="Icono de Contraseña"></span>
-
                     Confirm Password
                 </label>
             </div>
@@ -152,9 +152,9 @@
                 <x-input-label for="password_confirmation" :value="__('')" />
                 <div class="password-input-container">
                     <x-text-input id="password_confirmation" class="block mt-1 w-full" type="password" name="password_confirmation" required autocomplete="new-password" />
-                    <img src="../images/view-password-icon.png" alt="Icono de Ver Contraseña" class="password-icon" onclick="togglePasswordVisibility('password_confirmation')" />    
+                    <img src="../images/view-password-icon.png" alt="Icono de Ver Contraseña" class="password-icon" onclick="togglePasswordVisibility('password_confirmation')" />
                 </div>
-                
+
 
                 <x-input-error :messages="$errors->get('password_confirmation')" class="mt-2" />
             </div>
@@ -208,7 +208,7 @@
     //     }
     // }
 
-        function togglePasswordVisibility(fieldId, iconSelector) {
+    function togglePasswordVisibility(fieldId, iconSelector) {
         var passwordInput = document.getElementById(fieldId);
         var passwordIcon = document.querySelector(iconSelector);
 
@@ -219,6 +219,6 @@
             passwordInput.type = "password";
             passwordIcon.src = "../images/view-password-icon.png"; // Cambia a icono de "ver contraseña"
         }
-    } 
+    }
 </script>
 @endsection

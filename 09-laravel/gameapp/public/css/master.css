@@ -590,7 +590,7 @@ main.register {
     position: relative;
   }
 
-  input {
+  input, .input_gender{
     width: 320px; /* Ajusta el ancho */
     height: 50px; /* Ajusta la altura */
     border-radius: 20px; /* Ajusta el radio del borde */

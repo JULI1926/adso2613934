@@ -4,7 +4,7 @@
 
 @section('content')
 <header class="logo-catalogue">
-    <a href="01-Welcome.html" class="btn-back">
+    <a href="/" class="btn-back">
         <img src="../images/btn-back.svg" alt="Back">
     </a>
     <img src="../images/logo-welcome.svg" alt="Logo" class="logo-top">
