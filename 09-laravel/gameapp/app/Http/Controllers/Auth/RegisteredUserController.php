@@ -30,6 +30,7 @@ class RegisteredUserController extends Controller
     public function store(Request $request): RedirectResponse
     {
         $request->validate([
+            'photo' => ['required', 'image', 'mimes:jpeg,png,jpg,gif,svg', 'max:2048'],
             'document' => ['required', 'string', 'max:255'],
             'fullname' => ['required', 'string', 'max:255'],
             'gender' => ['required', 'string', 'max:255'],
@@ -41,13 +42,21 @@ class RegisteredUserController extends Controller
 
         ]);
 
+        if ($request->hasFile('photo')) {
+            $imageName = time().'.'.$request->photo->extension();  
+            $request->photo->move(public_path('image'), $imageName);
+            $imagePath = "image/" . $imageName; // Construir la ruta de acceso
+        } else {
+            $imagePath = null; // O manejar el caso de no imagen
+        }
+
         $user = User::create([
+            'photo' => $imagePath,
             'document' => $request->document,
             'fullname' => $request->fullname,
             'gender' => $request->gender,
             'birthdate' => $request->birthdate,
-            'phone' => $request->phone,
-          
+            'phone' => $request->phone,          
             'email' => $request->email,
             'password' => Hash::make($request->password),
         ]);

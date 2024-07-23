@@ -17,7 +17,7 @@
 
 </nav>
 <section class="scroll">
-    <form method="POST" action="{{ route('register') }}">
+    <form method="POST" action="{{ route('register') }}" enctype="multipart/form-data">
         @csrf
         <div class="photo">
             <div class="form-group">
