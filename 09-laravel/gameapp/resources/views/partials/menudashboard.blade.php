@@ -3,7 +3,7 @@
         <img src="../images/ico-profile.svg" alt="" />
         Profile
     </a>
-    <a href="06-dashboard.html">
+    <a href="/dashboard">
         <img src="../images/ico-dashboard.svg" alt="" />
         Dashboard
     </a>

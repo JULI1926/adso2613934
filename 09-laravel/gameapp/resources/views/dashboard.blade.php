@@ -69,6 +69,6 @@
         $(document).ready(function () {
             $("#menu-dashboard").load("/menudashboard");
         });
-    </script>
+</script>
 
 @endsection

@@ -15,7 +15,7 @@
     </svg>
 </header>
 
-<nav class="nav">
+<nav id="menu-dashboard" class="nav">
 
 </nav>
 
@@ -59,23 +59,14 @@
 
 @section('js')
 <script>
-    $(document).ready(function() {
-
-
-
-        $('header').on('click', '.btn-burger', function() {
-            $(this).toggleClass('active');
-
-            if ($(this).attr('src') === 'images/menu.svg') {
-                $(this).attr('src', 'images/icon-x.svg');
-            } else {
-                $(this).attr('src', 'images/menu.svg');
-            }
-
-            $('.nav').toggleClass('active');
+        $("header").on("click", ".btn-burger", function () {
+            $(this).toggleClass("active");
+            $(".nav").toggleClass("active");
         });
 
-    });
+        $(document).ready(function () {
+            $("#menu-dashboard").load("/menudashboard");
+        });
 </script>
 
 @endsection
