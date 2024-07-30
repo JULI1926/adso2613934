@@ -198,16 +198,16 @@
 
 
     $(document).ready(function() {
-        $("#menu-login").load("menu-login.html");
+        $("#menu-login").load("/menu");
     });
 
-    function togglePasswordVisibility() {
-        var passwordInput = document.getElementById("password");
-        var passwordIcon = document.querySelector(".password-icon");
+    function togglePasswordVisibility(fieldId, iconSelector) {
+        var passwordInput = document.getElementById(fieldId);
+        var passwordIcon = document.querySelector(iconSelector);
 
         if (passwordInput.type === "password") {
             passwordInput.type = "text";
-            passwordIcon.src = "../images/view-password-icon.png"; // Cambia a icono de "ocultar contraseña"
+            passwordIcon.src = "../images/hide-password-icon.png"; // Cambia a icono de "ocultar contraseña"
         } else {
             passwordInput.type = "password";
             passwordIcon.src = "../images/view-password-icon.png"; // Cambia a icono de "ver contraseña"

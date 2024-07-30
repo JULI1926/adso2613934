@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="{{asset('css/master.css') }}">
     <link rel="stylesheet" href="{{asset('css/owl.carousel.min.css') }}">
     <link rel="stylesheet" href="{{asset('css/owl.theme.default.min.css') }}">
+    <script src="{{ asset('js/sweetalert2.all.min.js') }}"></script>
 </head>
 <body>
     <main class="@yield('classMain')">
