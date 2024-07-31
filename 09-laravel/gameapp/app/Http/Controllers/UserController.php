@@ -53,7 +53,8 @@ class UserController extends Controller
      */
     public function show(User $user)
     {
-        //
+        //dd($user->toArray());
+        return view('users.show')->with('user',$user);
     }
 
     /**
@@ -61,15 +62,34 @@ class UserController extends Controller
      */
     public function edit(User $user)
     {
-        //
+        return view('users.edit')->with('user',$user);
     }    
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, User $user)
+    public function update(UserRequest $request, User $user)
     {
-        //
+        if($request->hasFile('photo')){
+            $file = $request->file('photo');
+            $photo = time() . '.' .$request->photo->extension();
+            $request->photo->move(public_path('images'), $photo);
+
+        } else {
+            $photo = $request->original_photo;
+        }
+        $user->document = $request->document;
+        $user->fullname = $request->fullname;
+        $user->gender = $request->gender;
+        $user->birthdate = $request->birthdate;
+        $user->photo = 'no-photo.png';
+        $user->phone = $request->phone;
+        $user->email = $request->email;
+        $user->password = bcrypt($request->password);
+
+        if($user->save()){
+            return redirect('users')->with('message', 'The user: '. $user->fullname.'was successfulyy updated!');
+        }
     }
 
     /**
@@ -77,6 +97,8 @@ class UserController extends Controller
      */
     public function destroy(User $user)
     {
-        //
+        if($user->delete()){
+            return redirect('users')->with('message', 'The user: '. $user->fullname.'was successfulyy deleted!');
+        }
     }
 }

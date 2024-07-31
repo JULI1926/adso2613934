@@ -23,14 +23,28 @@ class UserRequest extends FormRequest
      */
     public function rules(): array
     {
-        return [
-            'document' => ['required', 'numeric', 'unique:'.User::class],
-            'fullname' => ['required', 'string', 'max:255'],
-            'birthdate' => ['required', 'date'],
-            'gender' => ['required', 'string', 'max:255'],
-            'phone' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'lowercase', 'email', 'max:255','unique:'.User::class],
-            'password' => ['required', 'confirmed'],
-        ];
+        if ($this->isMethod('PUT')) {
+            return [
+                'document' => ['required', 'numeric', 'unique:'.User::class, $this->id], 
+                'fullname' => ['required', 'string', 'max:255'],
+                'birthdate' => ['required', 'date'],
+                'gender' => ['required', 'string', 'max:255'],
+                'birthdate' => ['required', 'date'],
+                'phone' => ['required', 'string', 'max:255'],
+                'email' => ['required', 'string', 'lowercase', 'email', 'max:255','unique:'.User::class, $this->id],
+                
+            ];
+            } else {
+                return [
+                    'document' => ['required', 'numeric', 'unique:'.User::class],
+                    'fullname' => ['required', 'string', 'max:255'],
+                    'birthdate' => ['required', 'date'],
+                    'gender' => ['required', 'string', 'max:255'],
+                    'phone' => ['required', 'string', 'max:255'],
+                    'email' => ['required', 'string', 'lowercase', 'email', 'max:255','unique:'.User::class],
+                    'password' => ['required', 'confirmed'],
+                ];
+            }
+        
     }
 }
