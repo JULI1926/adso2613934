@@ -1,6 +1,6 @@
 @extends('layouts.app');
 @section('title','GameApp - Create User')
-@section('classMain', 'adduser')
+@section('classMain', 'edituser')
 
 @section('content')
 <header>
@@ -17,17 +17,16 @@
 
 </nav>
 <section class="scroll">
-    <form method="POST" action="{{url('users'.$user->id)}}" enctype="multipart/form-data">
+    <form method="POST" action="{{ route('users.update', $user->id) }}" enctype="multipart/form-data">
         @csrf
         @method('PUT')
-        
+
         <input type="hidden" name="id" value="{{$user->id}}">
         <div class="photo">
             <div class="form-group">
-                <img id="upload" class="mask" src="{{ asset('../images/bg-upload-photo.svg')}}" alt="Photo">
-                <img class="border" src="../images/borde.svg" alt="Photo">
+                <img id="upload" class="mask" src="{{asset($user->photo)}}" alt="Photo">
+                <img class="border" src="{{asset('images/borde.svg')}}" alt="Photo">
                 <input id="photo" type="file" name="photo">
-                <input type="hidden" name="photo-origin" value="{{ $user->photo }}">
             </div>
         </div>
 
@@ -123,7 +122,7 @@
 
         <footer>
             <button type="submit" class="btn btn-register">
-                <img src="{{ asset('../images/add-user.svg')}}" width="60px" height="auto" alt="explore" width="100px" height="auto" class="image-name-login">
+                <img src="{{ asset('../images/save.svg')}}" width="60px" height="auto" alt="explore" width="100px" height="auto" class="image-name-login">
             </button>
 
         </footer>
@@ -160,7 +159,5 @@
     $(document).ready(function() {
         $("#menu-login").load("/menu");
     });
-
-   
 </script>
 @endsection

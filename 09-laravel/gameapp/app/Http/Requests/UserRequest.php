@@ -21,30 +21,25 @@ class UserRequest extends FormRequest
      *
      * @return array<string, \Illuminate\Contracts\Validation\ValidationRule|array<mixed>|string>
      */
+
     public function rules(): array
     {
-        if ($this->isMethod('PUT')) {
-            return [
-                'document' => ['required', 'numeric', 'unique:'.User::class, $this->id], 
-                'fullname' => ['required', 'string', 'max:255'],
-                'birthdate' => ['required', 'date'],
-                'gender' => ['required', 'string', 'max:255'],
-                'birthdate' => ['required', 'date'],
-                'phone' => ['required', 'string', 'max:255'],
-                'email' => ['required', 'string', 'lowercase', 'email', 'max:255','unique:'.User::class, $this->id],
-                
-            ];
-            } else {
-                return [
-                    'document' => ['required', 'numeric', 'unique:'.User::class],
-                    'fullname' => ['required', 'string', 'max:255'],
-                    'birthdate' => ['required', 'date'],
-                    'gender' => ['required', 'string', 'max:255'],
-                    'phone' => ['required', 'string', 'max:255'],
-                    'email' => ['required', 'string', 'lowercase', 'email', 'max:255','unique:'.User::class],
-                    'password' => ['required', 'confirmed'],
-                ];
-            }
-        
+        $rules = [
+            'document' => ['required', 'numeric', 'unique:' . User::class],
+            'fullname' => ['required', 'string', 'max:255'],
+            'birthdate' => ['required', 'date'],
+            'gender' => ['required', 'string', 'max:255'],
+            'phone' => ['required', 'string', 'max:255'],
+            'email' => ['required', 'string', 'lowercase', 'email', 'max:255', 'unique:' . User::class],
+            'password' => ['required', 'confirmed'],
+        ];
+
+        if ($this->method() == "PUT") {
+            $rules['document'] = ['required', 'numeric', 'unique:' . User::class . ',document,' . $this->user->id];
+            $rules['email'] = ['required', 'string', 'lowercase', 'email', 'max:255', 'unique:' . User::class . ',email,' . $this->user->id];
+            unset($rules['password']); // No es necesario validar la contraseña en la actualización
+        }
+
+        return $rules;
     }
 }

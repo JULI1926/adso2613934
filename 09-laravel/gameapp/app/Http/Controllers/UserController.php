@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use Illuminate\Http\Request;
 use App\Http\Requests\UserRequest;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Validation\Rules;
+
 
 class UserController extends Controller
 {
@@ -30,20 +33,38 @@ class UserController extends Controller
      */
     public function store(UserRequest $request)
     {
-        //dd($request->all());
-        $user = new User;
-        $user->document = $request->document;
-        $user->fullname = $request->fullname;
-        $user->gender = $request->gender;
-        $user->birthdate = $request->birthdate;
-        $user->photo = 'no-photo.png';
-        $user->phone = $request->phone;
-        $user->email = $request->email;
-        $user->password = bcrypt($request->password);
+        $request->validate([
+            'photo' => ['required', 'image', 'mimes:jpeg,png,jpg,gif,svg', 'max:2048'],
+            'document' => ['required', 'string', 'max:255'],
+            'fullname' => ['required', 'string', 'max:255'],
+            'gender' => ['required', 'string', 'max:255'],
+            'birthdate' => ['required', 'date'],
+            'phone' => ['required', 'string', 'max:255'],
+        
+            'email' => ['required', 'string', 'lowercase', 'email', 'max:255', 'unique:'.User::class],
+            'password' => ['required', 'confirmed', Rules\Password::defaults()],
 
-        if($user->save()){
-            return redirect('users')->with('messages', 'The user: '. $user->fullname.'was successfulyy added!');
+        ]);
+
+        if ($request->hasFile('photo')) {
+            $imageName = time().'.'.$request->photo->extension();  
+            $request->photo->move(public_path('image'), $imageName);
+            $imagePath = "image/" . $imageName; // Construir la ruta de acceso
+        } else {
+            $imagePath = null; // O manejar el caso de no imagen
         }
+
+        $user = User::create([
+            'photo' => $imagePath,
+            'document' => $request->document,
+            'fullname' => $request->fullname,
+            'gender' => $request->gender,
+            'birthdate' => $request->birthdate,
+            'phone' => $request->phone,          
+            'email' => $request->email,
+            'password' => Hash::make($request->password),
+        ]);
+
 
 
     }
@@ -70,25 +91,27 @@ class UserController extends Controller
      */
     public function update(UserRequest $request, User $user)
     {
-        if($request->hasFile('photo')){
-            $file = $request->file('photo');
-            $photo = time() . '.' .$request->photo->extension();
-            $request->photo->move(public_path('images'), $photo);
-
+        //
+        if ($request->hasFile('photo')) {
+            $imageName = time().'.'.$request->photo->extension();  
+            $request->photo->move(public_path('image'), $imageName);
+            $imagePath = "image/" . $imageName; // Construir la ruta de acceso
         } else {
-            $photo = $request->original_photo;
+            $imagePath = null; // O manejar el caso de no imagen
         }
+
         $user->document = $request->document;
         $user->fullname = $request->fullname;
         $user->gender = $request->gender;
         $user->birthdate = $request->birthdate;
-        $user->photo = 'no-photo.png';
+        $user->photo = $imagePath;
         $user->phone = $request->phone;
         $user->email = $request->email;
-        $user->password = bcrypt($request->password);
 
+        $user->save();
+        
         if($user->save()){
-            return redirect('users')->with('message', 'The user: '. $user->fullname.'was successfulyy updated!');
+            return redirect('users')->with('messages', 'The user: '. $user->fullname.'was successfully update!');
         }
     }
 

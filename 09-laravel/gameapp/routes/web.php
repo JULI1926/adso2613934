@@ -41,6 +41,8 @@ Route::middleware('auth')->group(function () {
     ]);
 });
 
+Route::put('users/{user}', [UserController::class, 'update'])->name('users.update');
+
 
 
 
