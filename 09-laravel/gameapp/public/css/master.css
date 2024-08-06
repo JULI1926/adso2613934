@@ -897,6 +897,27 @@ main.users {
         }
     }
     section {
+        /* HTML: <div class="loader"></div> */
+.loader {
+    width: 50px;
+    aspect-ratio: 1;
+    display: grid;
+    animation: l14 4s infinite;
+  }
+  .loader::before,
+  .loader::after {    
+    content: "";
+    grid-area: 1/1;
+    border: 8px solid;
+    border-radius: 50%;
+    border-color: red red #0000 #0000;
+    mix-blend-mode: darken;
+    animation: l14 1s infinite linear;
+  }
+  .loader::after {
+    border-color: #0000 #0000 blue blue;
+    animation-direction: reverse;
+  }  
         scrollbar-width: none;
         overflow-y: scroll;
         height: 640px;
@@ -906,6 +927,21 @@ main.users {
             align-items: center;
             margin-top: 0.7rem;
             gap: 1rem;
+
+            input {
+                border: none;
+                margin-bottom: 0.6rem;
+                border-radius: 4px;
+                outline: none;
+                padding: 0.4 rem;
+                transition: width 04.s ease-in;
+                width: 117px;
+                & focus {
+                    width: 200px;
+                }
+
+
+            }
         }
         a.add:is(:link, :visited) {
             background: url(../images/bg-btn-add.png) no-repeat center;
@@ -1087,6 +1123,10 @@ main.users {
             height: 640px;
         }
     }
+}
+
+@keyframes l14{ 
+    100%{transform: rotate(1turn)}
 }
 
 main.edituser {
@@ -2933,3 +2973,5 @@ main.profile {
         cursor: pointer;
     }
 }
+
+

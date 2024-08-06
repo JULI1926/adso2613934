@@ -43,7 +43,7 @@ Route::middleware('auth')->group(function () {
 
 Route::put('users/{user}', [UserController::class, 'update'])->name('users.update');
 
-
+Route::post('users/search', [UserController::class, 'search']);
 
 
 require __DIR__.'/auth.php';

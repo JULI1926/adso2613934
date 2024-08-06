@@ -23,34 +23,40 @@
         <a class="add" href="{{ url('users/create')}}">
             <img src="../images/content-btn-add.svg" alt="Add">
         </a>
-        @foreach($users as $user)
-        <article class="record">
-            <figure class="avatar">
-                <img class="mask" src="{{ $user->photo }}" alt="Photo">
-                <img class="border" src="../images/shape-border-small.svg" alt="Border">
-            </figure>
-            <aside>
-                <h3>{{ $user->fullname }}</h3>
-                <h4>{{ $user->role }}</h4>
-            </aside>
-            <figure class="actions">
-                <a href="{{ url('users/' .$user->id )}}">
-                    <img src="../images/ico-search.svg" alt="Show">
-                </a>
-                <a href="{{ url('users/' .$user->id .'/edit') }}">
-                    <img src="../images/ico-edit.svg" alt="Edit">
-                </a>
-                <a href="javascript:;" class="delete" data-fullname="{{ $user->fullname}}">
-                    <img src="{{ asset('../images/ico-delete.svg')}}" alt="Delete">
-                </a>
-                <form action="{{ url('users/' .$user->id)}}" method="post" style="display:none">
-                    @csrf
-                    @method('DELETE')
-                </form>
-            </figure>
-        </article>
-        @endforeach
+        <input type="text" name="qsearch" id="qsearch" placeholder="Search">
+        <div class="loader"></div>
+        <div class="list">
+            @foreach($users as $user)
+            <article class="record">
+                <figure class="avatar">
+                    <img class="mask" src="{{ $user->photo }}" alt="Photo">
+                    <img class="border" src="../images/shape-border-small.svg" alt="Border">
+                </figure>
+                <aside>
+                    <h3>{{ $user->fullname }}</h3>
+                    <h4>{{ $user->role }}</h4>
+                </aside>
+                <figure class="actions">
+                    <a href="{{ url('users/' .$user->id )}}">
+                        <img src="../images/ico-search.svg" alt="Show">
+                    </a>
+                    <a href="{{ url('users/' .$user->id .'/edit') }}">
+                        <img src="../images/ico-edit.svg" alt="Edit">
+                    </a>
+                    <a href="javascript:;" class="delete" data-fullname="{{ $user->fullname}}">
+                        <img src="{{ asset('../images/ico-delete.svg')}}" alt="Delete">
+                    </a>
+                    <form action="{{ url('users/' .$user->id)}}" method="post" style="display:none">
+                        @csrf
+                        @method('DELETE')
+                    </form>
+                </figure>
+            </article>
+            @endforeach
+        </div>
     </div>
+
+
 
     <div class="paginate">
         {{ $users->links('layouts.navigation') }}
@@ -68,6 +74,7 @@
 
     $(document).ready(function() {
         $("#menu-dashboard").load("/menudashboard");
+        $('.loader').hide();
     });
 </script>
 
@@ -89,5 +96,28 @@
             }
         });
     });
+</script>
+
+<script>
+    $('#qsearch').on('keyup', function() {
+        $query = $(this).val()
+        $token = $('input[name=_token]').val()
+        $model = 'users'
+
+        $('.loader').show();
+        $('.list').hide();
+
+        $.post($model + "/search", {
+                q: $query,
+                _token: $token
+            },
+            function(data) {
+                $('.loader').hide();
+                $('.list').show();
+                $('.list').empty().append(data)
+            }
+
+        )
+    })
 </script>
 @endsection

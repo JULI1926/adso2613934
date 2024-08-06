@@ -9,6 +9,8 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\Rules;
 
 
+
+
 class UserController extends Controller
 {
     /**
@@ -124,4 +126,11 @@ class UserController extends Controller
             return redirect('users')->with('message', 'The user: '. $user->fullname.'was successfulyy deleted!');
         }
     }
+
+    public function search(Request $request){
+        $users = User::names($request->q)->paginate(20);
+        return view('users.search')->with('users', $users);        
+        //return "Hola";
+    }
 }
+

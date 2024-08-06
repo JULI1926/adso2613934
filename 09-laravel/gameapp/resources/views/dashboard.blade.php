@@ -22,7 +22,9 @@
     <article class="module module-users">
         <aside>
             <img src="../images/ico-users.svg" alt="Users Module">
-            <span class="count-rows">20 Rows</span>
+            <span class="count-rows">
+                {{ App\Models\User::count() }} Rows
+            </span>
         </aside>
         <aside>
             <h2>USERS</h2>
@@ -34,7 +36,9 @@
     <article class="module module-cats">
         <aside>
             <img src="../images/ico-cats.svg" alt="Categories Module">
-            <span class="count-rows">6 Rows</span>
+            <span class="count-rows">
+                {{ App\Models\Category::count() }} Rows
+            </span>
         </aside>
         <aside>
             <h2>CATEGORIES</h2>
@@ -46,7 +50,9 @@
     <article class="module module-games">
         <aside>
             <img src="../images/ico-games.svg" alt="Games Module">
-            <span class="count-rows">40 Rows</span>
+            <span class="count-rows">
+                {{ App\Models\Game::count() }} Rows
+            </span>
         </aside>
         <aside>
             <h2>GAMES</h2>
