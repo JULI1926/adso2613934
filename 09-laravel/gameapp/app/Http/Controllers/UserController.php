@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 use App\Http\Requests\UserRequest;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\Rules;
+use App\Exports\UserExport;
+use PDF;
 
 
 
@@ -131,6 +133,17 @@ class UserController extends Controller
         $users = User::names($request->q)->paginate(20);
         return view('users.search')->with('users', $users);        
         //return "Hola";
+    }
+
+    public function pdf(){
+       $users = User::all();
+       $pdf = PDF::loadView('users.pdf',compact('users')); 
+       return $pdf->download('users.pdf');
+       
+    }
+
+    public function excel(){
+       return \Excel::download(new UserExport, 'users.xlsx');
     }
 }
 

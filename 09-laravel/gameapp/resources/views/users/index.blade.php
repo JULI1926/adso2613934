@@ -23,7 +23,16 @@
         <a class="add" href="{{ url('users/create')}}">
             <img src="../images/content-btn-add.svg" alt="Add">
         </a>
-        <input type="text" name="qsearch" id="qsearch" placeholder="Search">
+        <div class="options">
+            <a href="{{ url('exports/users/excel')}}">
+                <img src="{{asset('images/excel.png')}}" alt="">
+            </a>
+            <input type="text" name="qsearch" id="qsearch" placeholder="Search">
+            <a href="{{ url('exports/users/pdf')}}">
+                <img src="{{asset('images/pdf.png')}}" alt="">
+            </a>
+        </div>
+        
         <div class="loader"></div>
         <div class="list">
             @foreach($users as $user)

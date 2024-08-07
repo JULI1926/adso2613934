@@ -45,5 +45,9 @@ Route::put('users/{user}', [UserController::class, 'update'])->name('users.updat
 
 Route::post('users/search', [UserController::class, 'search']);
 
+//Exports
+Route::get('exports/users/pdf', [UserController::class, 'pdf']);
+Route::get('exports/users/excel', [UserController::class, 'excel']);
+
 
 require __DIR__.'/auth.php';
