@@ -3,6 +3,7 @@
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\CategorieController;
 use App\Models\User;
 use App\Http\Controllers\Auth\RegisteredUserController;
 
@@ -37,7 +38,9 @@ Route::middleware('auth')->group(function () {
     });
     
     Route::resources([
-        'users' => UserController::class
+        'users' => UserController::class,
+        'categories' => CategorieController::class
+        
     ]);
 });
 
@@ -50,4 +53,5 @@ Route::get('exports/users/pdf', [UserController::class, 'pdf']);
 Route::get('exports/users/excel', [UserController::class, 'excel']);
 
 
+Route::post('categories/search', [UserController::class, 'search']);
 require __DIR__.'/auth.php';

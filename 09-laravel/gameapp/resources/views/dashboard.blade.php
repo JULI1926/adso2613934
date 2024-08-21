@@ -42,7 +42,7 @@
         </aside>
         <aside>
             <h2>CATEGORIES</h2>
-            <a class="btn-more" href="categories.html">
+            <a class="btn-more" href="{{url('categories')}}">
                 view
             </a>
         </aside>
