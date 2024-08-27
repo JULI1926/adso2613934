@@ -37,18 +37,7 @@ class UserController extends Controller
      */
     public function store(UserRequest $request)
     {
-        $request->validate([
-            'photo' => ['required', 'image', 'mimes:jpeg,png,jpg,gif,svg', 'max:2048'],
-            'document' => ['required', 'string', 'max:255'],
-            'fullname' => ['required', 'string', 'max:255'],
-            'gender' => ['required', 'string', 'max:255'],
-            'birthdate' => ['required', 'date'],
-            'phone' => ['required', 'string', 'max:255'],
         
-            'email' => ['required', 'string', 'lowercase', 'email', 'max:255', 'unique:'.User::class],
-            'password' => ['required', 'confirmed', Rules\Password::defaults()],
-
-        ]);
 
         if ($request->hasFile('photo')) {
             $imageName = time().'.'.$request->photo->extension();  
@@ -68,7 +57,7 @@ class UserController extends Controller
             'email' => $request->email,
             'password' => Hash::make($request->password),
         ]);
-
+        return redirect('users')->with('message', 'The user: '. $user->fullname.'was successfully created!');
 
 
     }

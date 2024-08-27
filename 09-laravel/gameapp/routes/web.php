@@ -40,7 +40,6 @@ Route::middleware('auth')->group(function () {
     Route::resources([
         'users' => UserController::class,
         'categories' => CategorieController::class
-        
     ]);
 });
 

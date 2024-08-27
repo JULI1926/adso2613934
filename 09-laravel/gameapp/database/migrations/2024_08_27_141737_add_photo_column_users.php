@@ -12,9 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::table('users', function (Blueprint $table) {
-            if (!Schema::hasColumn('users', 'photo')) { // Verifica si la columna 'photo' no existe
-                $table->string('photo')->nullable(); // Añade la columna 'photo' si no existe
-            }
+            $table->string('photo')->nullable()->default('no-photo.png')->after('document');
         });
     }
 
@@ -24,7 +22,7 @@ return new class extends Migration
     public function down(): void
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->dropColumn('photo'); // Elimina la columna 'photo'
-        });
+            $table->dropColumn('photo');
+        });             
     }
 };

@@ -161,7 +161,7 @@
 
         <footer>
             <button type="submit" class="btn btn-register">
-                <img src="{{ asset('../images/add-user.svg')}}" width="60px" height="auto" alt="explore" width="100px" height="auto" class="image-name-login">
+                <img src="{{ asset('images/add-user.svg')}}" width="60px" height="auto" alt="explore" width="100px" height="auto" class="image-name-login">
             </button>
             
         </footer>

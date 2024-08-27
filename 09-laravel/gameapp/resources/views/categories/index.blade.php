@@ -27,7 +27,7 @@
         @foreach($categories as $categorie)
             <article class="record">  
                 <figure class="avatar">
-                    <img class="mask" src="{{asset('images/sports-category.gif')}}" alt="Photo">
+                    <img class="mask" src="{{ $categorie->photo }}" alt="Photo">
                     <img class="border" src="{{asset('images/shape-border-smalls-category.svg')}}" alt="Border">
                 </figure>     
                 <aside>

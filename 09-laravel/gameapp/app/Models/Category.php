@@ -14,12 +14,12 @@ class Category extends Model
      * @var array<int, string>
      */
     // R
-    protected $fillable = [
+    protected $fillable = [        
         'name',
-        'image',
+        'photo',
         'manufacturer',
         'releasedate',
-        'description',
+        'description'
     ];
 
     //Relac
