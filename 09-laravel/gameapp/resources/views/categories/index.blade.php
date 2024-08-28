@@ -18,7 +18,6 @@
 
 <nav id="menu-dashboard" class="nav"></nav>
 
-</nav>
 <section>
     <div class="area">
         <a class="add" href=" {{ url('categories/create')}} ">
@@ -59,12 +58,12 @@
 
 @section('js')
 <script>
-    $("header").on("click", ".btn-burger", function () {
+    $("header").on("click", ".btn-burger", function() {
         $(this).toggleClass("active");
         $(".nav").toggleClass("active");
     });
 
-    $(document).ready(function () {
+    $(document).ready(function() {
         $("#menu-dashboard").load("/menudashboard");
         $('.loader').hide();
     });
@@ -112,3 +111,4 @@
         )
     })
 </script>
+@endsection

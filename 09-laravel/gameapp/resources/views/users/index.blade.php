@@ -17,7 +17,6 @@
 
 <nav id="menu-dashboard" class="nav"></nav>
 
-</nav>
 <section>
     <div class="area">
         <a class="add" href="{{ url('users/create')}}">
@@ -32,7 +31,7 @@
                 <img src="{{asset('images/pdf.png')}}" alt="">
             </a>
         </div>
-        
+
         <div class="loader"></div>
         <div class="list">
             @foreach($users as $user)
