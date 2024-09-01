@@ -18,12 +18,12 @@
 
 <nav id="menu-dashboard" class="nav"></nav>
 
-</nav>
+
 
 <section class="scroll">
     <form action="06-dashboard.html" method="get">
          <!-- Photo -->
-        <div class="photo">
+        <div class="photo readonly">
             <div class="form-group">
                 <img id="upload" class="mask" src="{{asset($category->photo)}}" alt="Photo">
                 <img class="border" src="{{asset('images/borde.svg')}}" alt="Photo">
@@ -59,7 +59,7 @@
                 </label>
             </div>
             <div class="title-input">
-                <textarea class="description" id="description" name="description" placeholder="" style="width: 320px; height: 130px; resize: none;">{{ $category->description }}</textarea>
+                <textarea class="description" id="description" name="description" placeholder="" style="width: 320px; height: 130px; resize: none;" readonly>{{ $category->description }}</textarea>
                 <x-input-error :messages="$errors->get('description')" class="mt-2" />
             </div>
         </div>
@@ -73,10 +73,10 @@
                 </label>
             </div>
             <div class="title-input">
-                <select class="manufacturer" id="manufacturer" name="manufacturer">
-                    <option value="Microsoft">Microsoft</option>
-                    <option value="Nintendo">Nintendo</option>
-                    <option value="Sony">Sony</option>
+                <select class="manufacturer" id="manufacturer" name="manufacturer" disabled>
+                    <option value="Microsoft" @if(old('manufacturer', $category->manufacturer) == "Microsoft") selected @endif>Microsoft</option>
+                    <option value="Nintendo" @if(old('manufacturer', $category->manufacturer) == "Nintendo") selected @endif>Nintendo</option>
+                    <option value="Sony" @if(old('manufacturer', $category->manufacturer) == "Sony") selected @endif>Sony</option>
                 </select>
                 <x-input-error :messages="$errors->get('manufacturer')" class="mt-2" />
             </div>
@@ -89,10 +89,25 @@
                     </label>
                 </div>
                 <div class="title-input">
-                    <input class="releasedate" type="date" id="releasedate" name="releasedate" value="{{ $category->releasedate }}">
+                    <input class="releasedate" type="date" id="releasedate" name="releasedate" value="{{ $category->releasedate }}" readonly>
                     <x-input-error :messages="$errors->get('releasedate')" class="mt-2" />
                 </div>
             </div>
     </form>
 </section>
+@endsection
+
+@section('js')
+<script>
+    $("header").on("click", ".btn-burger", function() {
+        $(this).toggleClass("active");
+        $(".nav").toggleClass("active");
+    });
+
+    $(document).ready(function() {
+        $("#menu-dashboard").load("/menudashboard");
+        $('.loader').hide();
+    });
+</script>
+
 @endsection

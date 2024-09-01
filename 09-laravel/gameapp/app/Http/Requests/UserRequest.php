@@ -31,7 +31,7 @@ class UserRequest extends FormRequest
             'gender' => ['required', 'string', 'max:255'],
             'phone' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'lowercase', 'email', 'max:255', 'unique:' . User::class],
-            'password' => ['required', 'confirmed'],
+            'password' => ['required', 'confirmed']
         ];
 
         if ($this->method() == "PUT") {

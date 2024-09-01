@@ -90,7 +90,7 @@ class UserController extends Controller
             $request->photo->move(public_path('image'), $imageName);
             $imagePath = "image/" . $imageName; // Construir la ruta de acceso
         } else {
-            $imagePath = null; // O manejar el caso de no imagen
+            $imagePath = $user->photo; // O manejar el caso de no imagen
         }
 
         $user->document = $request->document;

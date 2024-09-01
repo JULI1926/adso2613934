@@ -4,7 +4,9 @@
 
 @section('content')
 <header>
-    <div class="empty-div"></div>
+    <a href="{{url('dashboard')}}" class="btn-back">
+        <img src="{{ asset('images/btn-back.svg')}}" alt="Back" />
+    </a>
     <h1 class="title-register">Edit User</h1>
     <svg class="btn-burger" viewBox="0 0 100 100" width="80">
         <path class="line top" d="m 70,33 h -40 c 0,0 -8.5,-0.149796 -8.5,8.5 0,8.649796 8.5,8.5 8.5,8.5 h 20 v -20" />
@@ -122,7 +124,7 @@
 
         <footer>
             <button type="submit" class="btn btn-register">
-                <img src="{{ asset('../images/save.svg')}}" width="60px" height="auto" alt="explore" width="100px" height="auto" class="image-name-login">
+                <img src="{{ asset('images/save.svg')}}" width="60px" height="auto" alt="explore" width="100px" height="auto" class="image-name-login">
             </button>
 
         </footer>

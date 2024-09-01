@@ -59,11 +59,53 @@ class CategorieController extends Controller
         return view('categories.show')->with('category', $category);
     }
 
+    public function edit(Category $category)
+    {
+        return view('categories.edit')->with('category', $category);
+    }
+
+    public function update(CategoryRequest $request, Category $category)
+    {
+        //dd($request->all());
+
+        if ($request->hasFile('photo')) {
+            $imageName = time() . '.' . $request->photo->extension();
+            $request->photo->move(public_path('image'), $imageName);
+            $imagePath = "image/" . $imageName; // Construir la ruta de acceso
+        } else {
+            $imagePath = $category->photo; // Mantener la imagen existente
+        }
+
+        // Actualizar los campos de la categoría
+        $category->update([
+            'name' => $request->name,
+            'photo' => $imagePath,
+            'manufacturer' => $request->manufacturer,
+            'releasedate' => $request->releasedate,
+            'description' => $request->description,
+        ]);
+
+        // Redirigir o devolver una respuesta
+        return redirect()->route('categories.index')->with('messages', 'The category: ' . $category->name . ' was successfully updated!');
+    }
+
+    public function destroy(Category $category)
+    {
+        if($category->delete()){
+            return redirect('categories')->with('message', 'The category: '. $category->name.'was successfulyy deleted!');
+        }
+    }
+
 
     public function search(Request $request)
     {
-        $categories = Category::names($request->q)->paginate(20);
-        return view('categories.search')->with('categories', $categories);
-        //return "Hola";
+        try {
+            $categories = Category::names($request->q)->paginate(4);
+            return view('categories.search')->with('categories', $categories);
+            //return "Hola";
+        } catch (\Exception $e) {
+            Log::error($e->getMessage());
+            return response()->json(['error' => $e->getMessage()], 500);
+        }
     }
 }
