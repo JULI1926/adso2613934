@@ -4,6 +4,7 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\CategorieController;
+use App\Http\Controllers\GamesController;
 use App\Models\User;
 use App\Http\Controllers\Auth\RegisteredUserController;
 
@@ -39,7 +40,8 @@ Route::middleware('auth')->group(function () {
     
     Route::resources([
         'users' => UserController::class,
-        'categories' => CategorieController::class
+        'categories' => CategorieController::class,
+        'games' => GamesController::class
     ]);
 });
 

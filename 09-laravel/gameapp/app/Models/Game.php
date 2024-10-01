@@ -28,6 +28,11 @@ class Game extends Model
         'description'
     ];
 
+    public function games()
+    {
+        return $this->hasMany('App\Models\User');
+    }
+
 
     public function user()
     {
