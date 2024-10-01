@@ -20,21 +20,26 @@ class CategoryRequest extends FormRequest
      *
      * @return array<string, \Illuminate\Contracts\Validation\ValidationRule|array<mixed>|string>
      */
+        
     public function rules(): array
     {
         $rules = [
-            'photo' => ['required', 'image', 'mimes:jpeg,png,jpg,gif,svg', 'max:2048'],
-            'name' => ['required', 'string', 'max:255' ],
+            'photo' => ['sometimes', 'image', 'mimes:jpeg,png,jpg,gif,svg', 'max:2048'],
+            'name' => ['required', 'string', 'unique:categories,name'],
             'manufacturer' => ['required', 'string', 'max:255'],
             'description' => ['required', 'string', 'max:255'],
             'releasedate' => ['required', 'date']
         ];
-
+    
         // Si el método HTTP es PUT, significa que estamos actualizando una categoría existente
         if ($this->method() == "PUT") {
+            $rules['name'] = ['required', 'string', 'unique:categories,name,' . $this->route('category')->id];
             $rules['photo'] = ['sometimes', 'image', 'mimes:jpeg,png,jpg,gif,svg', 'max:2048'];
+            $rules['manufacturer'] = ['required', 'string', 'max:255'];
+            $rules['description'] = ['required', 'string', 'max:255'];
+            $rules['releasedate'] = ['required', 'date'];
         }
-
+    
         return $rules;
     }
 

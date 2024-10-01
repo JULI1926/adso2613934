@@ -23,35 +23,50 @@
         <a class="add" href=" {{ url('categories/create')}} ">
             <img src="{{ url('images/content-btn-add.svg')}}" alt="Add">
         </a>
-        @foreach($categories as $categorie)
-            <article class="record">  
+        <div class="options">
+            <a href="{{ url('exports/users/excel')}}">
+                <img src="{{asset('images/excel.png')}}" alt="">
+            </a>
+            <input type="text" name="qsearch" id="qsearch" placeholder="Search">
+            <a href="{{ url('exports/users/pdf')}}">
+                <img src="{{asset('images/pdf.png')}}" alt="">
+            </a>
+        </div>
+        <div class="loader"></div>
+        <div class="list">
+            @foreach($categories as $categorie)
+            <article class="record">
                 <figure class="avatar">
                     <img class="mask" src="{{ $categorie->photo }}" alt="Photo">
                     <img class="border" src="{{asset('images/shape-border-smalls-category.svg')}}" alt="Border">
-                </figure>     
+                </figure>
                 <aside>
-                    <h3>{{ $categorie->name}}</h3> 
+                    <h3>{{ $categorie->name}}</h3>
                     <h4></h4>
                 </aside>
                 <figure class="actions">
                     <a href="{{ url('categories/' .$categorie->id )}}">
                         <img src="{{asset('images/ico-search.svg')}}" alt="Show">
                     </a>
-                    <a href="edit-category.html">
+                    <a href="{{ route('categories.edit',$categorie->id)}}">
                         <img src="{{asset('images/ico-edit.svg')}}" alt="Edit">
                     </a>
-                    <a href="javascript:;">
+                    <a href="javascript:;" class="delete" data-fullname="{{ $categorie->name}}">
                         <img src="{{asset('images/ico-delete.svg')}}" alt="Delete">
                     </a>
+                    <form action="{{ url('categories/' .$categorie->id)}}" method="post" style="display:none">
+                        @csrf
+                        @method('DELETE')
+                    </form>
                 </figure>
-            </article>   
-        @endforeach
-
-
-
-        <div class="paginate">
-            {{ $categories->links('layouts.navigation') }}
+            </article>
+            @endforeach
         </div>
+    </div>
+
+    <div class="paginate">
+        {{ $categories->links('layouts.navigation') }}
+    </div>
 </section>
 @endsection
 
@@ -70,7 +85,7 @@
 </script>
 
 <script>
-    $('figure').on('click', '.delete', function () {
+    $('figure').on('click', '.delete', function() {
         $fullname = $(this).attr('data-fullname')
 
         Swal.fire({
@@ -90,7 +105,7 @@
 </script>
 
 <script>
-    $('#qsearch').on('keyup', function () {
+    $('#qsearch').on('keyup', function() {
         $query = $(this).val()
         $token = $('input[name=_token]').val()
         $model = 'categories'
@@ -99,14 +114,14 @@
         $('.list').hide();
 
         $.post($model + "/search", {
-            q: $query,
-            _token: $token
-        },
-            function (data) {
+                q: $query,
+                _token: $token
+            },
+            function(data) {
                 $('.loader').hide();
                 $('.list').show();
                 $('.list').empty().append(data)
-            }
+            },
 
         )
     })

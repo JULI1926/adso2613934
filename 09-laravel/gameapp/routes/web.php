@@ -54,5 +54,8 @@ Route::get('exports/users/pdf', [UserController::class, 'pdf']);
 Route::get('exports/users/excel', [UserController::class, 'excel']);
 
 
-Route::post('categories/search', [UserController::class, 'search']);
+Route::post('categories/search', [CategorieController::class, 'search']);
+
+
+
 require __DIR__.'/auth.php';
