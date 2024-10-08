@@ -1,6 +1,6 @@
 @extends('layouts.app')
-@section('title', 'GameApp - Categories Module')
-@section('classMain', 'add-category')
+@section('title', 'GameApp - Games Module')
+@section('classMain', 'addgame')
 
 @section('content')
 <header>
@@ -22,23 +22,23 @@
         </nav>
 
         <section class="scroll">
-            <form action="06-dashboard.html" method="get">
+            <form action="{{ route('games.store')}}" method="POST" enctype="multipart/form-data">
                 <div class="photo">
                     <div class="form-group">
                         <img id="upload" class="mask" src="../images/bg-upload-photo.svg" alt="Photo">
                         <img class="border" src="../images/borde.svg" alt="Photo">
-                        <input id="photo" type="file" name="photo" >
+                        <input id="photo" type="file" name="image" >
                     </div>
                 </div>
                 <div class="form-group">
                     <div>
                         <label class="title-content-register" for="fullname">
                             <span class="icon"><img src="../images/name-icon.png" alt="Icono de Nombre Completo"></span>
-                            Name:
+                            Title:
                         </label>
                     </div>
                     <div class="title-input">
-                        <input type="text" id="fullname" name="fullname" placeholder="Introduzca su Nombre" required>
+                        <input type="text" id="tittle" name="title" placeholder="Introduzca el titulo" required>
                     </div>
                 </div>
                 <div class="form-group">
@@ -50,11 +50,24 @@
                     </div>
                     <select name="category_id">
                         <option value="">Select...</option>
-                        @foreach ($cats as cat)
-                            <option value="{{cat->id}}">{{$cat->name}}</option>
+                        @foreach ($cats as $cat)
+                            <option value="{{$cat->id}}">{{$cat->name}}</option>
                         @endforeach
                     </select>
                 </div>
+                <div class="form-group">
+                    <div>
+                        <label class="title-content-register" for="email">
+                            <span class="icon"><img src="../images/description-icon.png"
+                                    alt="Icono de Correo Electrónico"></span>
+                            Release Date:
+                        </label>
+                    </div>
+                    <div class="title-input">
+                        <input class="releasedate" type="date" id="releasedate" name="releasedate" placeholder="" value="">
+                        <x-input-error :messages="$errors->get('releasedate')" class="mt-2" />
+                    </div>
+                </div> 
                 <div class="form-group">
                     <div>
                         <label class="title-content-register" for="email">
@@ -64,13 +77,26 @@
                         </label>
                     </div>
                     <div class="title-input">
-                        <textarea class="description" id="description-category" name="description-category" placeholder="" style="width: 320px; height: 130px; resize: none;" value = "lorem ipsum">&#10;</textarea>
+                        <textarea class="description" id="description-category" name="description" placeholder="" style="width: 320px; height: 130px; resize: none;" value = "lorem ipsum">&#10;</textarea>
                     </div>
-                </div>                
+                </div>
+                <div class="form-group">
+                    <div>
+                        <label class="title-content-register" for="email">
+                            <span class="icon"><img src="../images/description-icon.png"
+                                    alt="Icono de Correo Electrónico"></span>
+                            Price:
+                        </label>
+                    </div>
+                    <div class="title-input">
+                        <input class="releasedate" type="price" id="price" name="price" placeholder="" value="">
+                        <x-input-error :messages="$errors->get('price')" class="mt-2" />
+                    </div>
+                </div>                  
                 <footer>
-                    <a href="games.html" class="btn btn-register" >
-                        <img src="../images/add-user.svg" width = "60px" height = "auto" alt="explore" width = "100px" height = "auto" class="image-name-login">
-                    </a>
+                    <button type="submit" class="btn btn-register">
+                        <img src="{{ asset('images/add-user.svg')}}" width="60px" height="auto" alt="explore" width="100px" height="auto" class="image-name-login">
+                    </button>
 
                 </footer>
             </form>

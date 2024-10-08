@@ -6,6 +6,7 @@ use App\Models\Game;
 use App\Models\Category;
 use Illuminate\Http\Request;
 use App\Http\Requests\GameRequest;
+use Illuminate\Support\Facades\Auth; 
 
 class GamesController extends Controller
 {
