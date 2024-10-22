@@ -23,29 +23,27 @@ class GameRequest extends FormRequest
     {
         $rules = [
             'title' => ["required", "unique:games,title,{$this->id}"],
-            'image' => ['required', 'string', 'unique:categories,name'],
+            'image' => ['required', 'image', 'unique:categories,name'],
             'developer' => ['required', 'string', 'max:255'],
             'releasedate' => ['required', 'date', 'max:255'],
             'description' => ['required', 'string', 'max:255'],
-            'price' => ['required', 'number', 'max:255'],
+            'price' => ['required', 'numeric', 'max:255'], // Cambiado a 'numeric'
             'genre' => ['required', 'string', 'max:255'],
-            'slider' => ['required', 'date']
+            'slider' => ['required', 'boolean'] // Cambiado a 'boolean'
         ];
-    
+
         // Si el método HTTP es PUT, significa que estamos actualizando una categoría existente
         if ($this->method() == "PUT") {
             $rules['title'] = ['required', 'unique:games,title,' . $this->id];
-            $rules['image'] = ['required', 'string', 'unique:categories,name'];
+            $rules['image'] = ['required', 'image', 'unique:categories,name'];
             $rules['developer'] = ['required', 'string', 'max:255'];
             $rules['releasedate'] = ['required', 'string', 'max:255'];
-            $rules['description'] = ['required', 'string', 'max:255']; 
-            $rules['price'] =  ['required', 'number', 'max:255'];
+            $rules['description'] = ['required', 'string', 'max:255'];
+            $rules['price'] =  ['required', 'numeric', 'max:255']; // Cambiado a 'numeric'
             $rules['genre'] = ['required', 'string', 'max:255'];
-            $rules['slider'] = ['required', 'date'];
-
+            $rules['slider'] = ['required', 'boolean']; // Cambiado a 'boolean'
         }
-    
+
         return $rules;
     }
-
 }

@@ -2557,25 +2557,48 @@ main.addgame {
         justify-content: center;
         align-items: center;
 
-        a:is(:link, visited) {
+        button {
             background: url(../images/register-link.png) no-repeat;
-            height: 51px;
+            color: var(--color-five);
+            font-size: 20px;
+            font-weight: 400;
+            height: 60px;
             display: flex;
             justify-content: center;
             align-items: center;
-            margin-top: 1rem;
-            transition: all 0.2s ease-in;
+            gap: 0.6rem;
+            padding: 0 20px;
+            margin-top: 1.2rem;
+            transition: all 0.1s ease-in;
+            text-decoration: none;
             width: 300px;
         }
-
-        a:is(:hover) {
+    
+        button:hover {
             background: url(../images/register-hover.png) no-repeat center;
-            transform: scale(1) translate(-4px);
+            transform: scale(1.01); /* Escala ligeramente más pequeña y mueve ligeramente a la izquierda */
+        }
+    
+        button:active {
+            background: url(../images/register-active.png) no-repeat center;
+            transform: scale(1); /* Reduce la escala ligeramente y mueve a la izquierda */
+        }
+    
+        .btn-register {
+            border: none; /* Elimina el borde */
+            align-items: center;
+            justify-content: center;
+            align-items: center;
+        }
+    
+        .image-name-register {
+            width: 90px;
+            height: 90px;
+            align-items: center;
+            gap: 0.4rem;
         }
 
-        a:is(:active) {
-            background: url(../images/register-active.png) no-repeat center;
-        }
+        
     }
 
     .password-icon {

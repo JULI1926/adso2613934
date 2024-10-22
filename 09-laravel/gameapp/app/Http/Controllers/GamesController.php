@@ -7,6 +7,8 @@ use App\Models\Category;
 use Illuminate\Http\Request;
 use App\Http\Requests\GameRequest;
 use Illuminate\Support\Facades\Auth; 
+use Illuminate\Support\Facades\Log;
+
 
 class GamesController extends Controller
 {
@@ -25,8 +27,17 @@ class GamesController extends Controller
     public function store(GameRequest $request)
     {
         
-        Game::create($request->all());
-        return redirect()->route('games.index');
+        // Game::create($request->all());
+        // return redirect()->route('games.index');
+        if ($request->hasFile('photo')) {
+            $imageName = time() . '.' . $request->photo->extension();
+            $request->photo->move(public_path('image'), $imageName);
+            $imagePath = "image/" . $imageName;
+            Log::info('Foto guardada en:', ['path' => $imagePath]);
+        } else {
+            $imagePath = null;
+            //Log::info('No se recibió archivo de foto.');
+        }
     }
 
     public function show($id)
