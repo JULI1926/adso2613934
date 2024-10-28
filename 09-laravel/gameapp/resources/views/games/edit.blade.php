@@ -42,9 +42,9 @@
         <div class="form-group">
             <div>
                 <label class="title-content-register" for="title">
-                    <span class="icon"><img src="../images/name-icon.png" alt="Icono de Nombre Completo"></span>
+                    <span class="icon"><img src="{{ asset('images/name-icon.png') }}" alt="Icono de Nombre Completo"></span>
                     Title:
-                </label>
+                </label>    
             </div>
             <div class="title-input">
                 <input type="text" id="title" name="title" placeholder="Introduzca el titulo" value="{{ $game->title }}" required>
@@ -69,9 +69,9 @@
         <div class="form-group">
             <div>
                 <label class="title-content-register" for="releasedate">
-                    <span class="icon"><img src="../images/description-icon.png" alt="Icono de Correo Electrónico"></span>
+                    <span class="icon"><img src="{{ asset('images/description-icon.png') }}" alt="Icono de Correo Electrónico"></span>
                     Release Date:
-                </label>
+                </label>                
             </div>
             <div class="title-input">
                 <input class="releasedate" type="date" id="releasedate" name="releasedate" value="{{ $game->releasedate }}">
@@ -81,9 +81,9 @@
         <div class="form-group">
             <div>
                 <label class="title-content-register" for="developer">
-                    <span class="icon"><img src="../images/developer-icon.png" alt="Icono de Desarrollador"></span>
+                    <span class="icon"><img src="{{ asset('images/developer.png') }}" alt="Icono de Desarrollador"></span>
                     Developer:
-                </label>
+                </label>            
             </div>
             <div class="title-input">
                 <input type="text" id="developer" name="developer" placeholder="Enter the developer name" value="{{ $game->developer }}">
@@ -92,7 +92,7 @@
         <div class="form-group">
             <div>
                 <label class="title-content-register" for="genre">
-                    <span class="icon"><img src="../images/genre-icon.png" alt="Icono de Género"></span>
+                    <span class="icon"><img src="{{ asset('images/genre.png') }}" alt="Icono de Género"></span>
                     Genre:
                 </label>
             </div>
@@ -103,7 +103,7 @@
         <div class="form-group">
             <div>
                 <label class="title-content-register" for="description">
-                    <span class="icon"><img src="../images/description-icon.png" alt="Icono de Correo Electrónico"></span>
+                    <span class="icon"><img src="{{ asset('images/description-icon.png') }}" alt="Icono de Correo Electrónico"></span>
                     Description:
                 </label>
             </div>
@@ -114,7 +114,7 @@
         <div class="form-group">
             <div>
                 <label class="title-content-register" for="price">
-                    <span class="icon"><img src="../images/description-icon.png" alt="Icono de Correo Electrónico"></span>
+                    <span class="icon"><img src="{{ asset('images/price.png') }}" alt="Icono de Correo Electrónico"></span>
                     Price:
                 </label>
             </div>

@@ -4,7 +4,7 @@
 
 @section('content')
 <header>
-    <a href="users.html" class="btn-back">
+    <a href="{{ url('dashboard') }}" class="btn-back">
         <img src="../images/btn-back.svg" alt="Back">
     </a>
     <h1 class="title-register">ADD GAME</h1>
@@ -83,7 +83,7 @@
         <div class="form-group">
             <div>
                 <label class="title-content-register" for="developer">
-                    <span class="icon"><img src="../images/developer-icon.png" alt="Icono de Desarrollador"></span>
+                    <span class="icon"><img src="../images/developer.png" alt="Icono de Desarrollador"></span>
                     Developer:
                 </label>
             </div>
@@ -94,7 +94,7 @@
         <div class="form-group">
             <div>
                 <label class="title-content-register" for="genre">
-                    <span class="icon"><img src="../images/genre-icon.png" alt="Icono de Género"></span>
+                    <span class="icon"><img src="../images/genre.png" alt="Icono de Género"></span>
                     Genre:
                 </label>
             </div>
@@ -117,7 +117,7 @@
         <div class="form-group">
             <div>
                 <label class="title-content-register" for="email">
-                    <span class="icon"><img src="../images/description-icon.png"
+                    <span class="icon"><img src="../images/price.png"
                             alt="Icono de Correo Electrónico"></span>
                     Price:
                 </label>

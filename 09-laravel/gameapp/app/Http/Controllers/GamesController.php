@@ -8,6 +8,8 @@ use Illuminate\Http\Request;
 use App\Http\Requests\GameRequest;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Log;
+use App\Exports\GameExport;
+use Maatwebsite\Excel\Facades\Excel;
 use PDF;
 
 class GamesController extends Controller
@@ -119,4 +121,26 @@ class GamesController extends Controller
      public function excel(){
         return \Excel::download(new GameExport, 'games.xlsx');
      }
+
+     public function search(Request $request){
+        try {
+            // Registro de depuración
+            Log::info('Search query: ' . $request->q);
+    
+            // Llamada correcta al query scope 'names'
+            $games = Game::names($request->q)->paginate(4);
+            
+            // Registro de depuración
+            Log::info('Games found: ' . $games->count());
+    
+            // Asegúrate de que la vista 'games.search' exista y esté configurada correctamente
+            return view('games.search')->with('games', $games);
+        } catch (\Exception $e) {
+            // Registra el error para depuración
+            Log::error($e->getMessage());
+            
+            // Devuelve una respuesta JSON con el mensaje de error y un código de estado 500
+            return response()->json(['error' => $e->getMessage()], 500);
+        }    
+    }
 }

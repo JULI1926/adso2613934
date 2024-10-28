@@ -56,9 +56,9 @@ Route::get('exports/users/excel', [UserController::class, 'excel']);
 Route::get('exports/games/pdf', [GamesController::class, 'pdf']);
 Route::get('exports/games/excel', [GamesController::class, 'excel']);
 
-
+//Search
 Route::post('categories/search', [CategorieController::class, 'search']);
-
+Route::post('games/search', [GamesController::class, 'search']);
 
 
 require __DIR__.'/auth.php';

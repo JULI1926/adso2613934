@@ -20,13 +20,20 @@
         @foreach($games as $game)
         <tr>
             <td>{{ $game->title }}</td>
-            <td><img src="{{ asset($game->image) }}" alt="{{ $game->title }}" width="40px"></td>
+            <td>
+                @if(file_exists(public_path($game->image)))
+                    <img src="{{ public_path($game->image) }}" alt="{{ $game->name }}" width="50">
+                @else
+                    No image
+                @endif
+            </td>
             <td>{{ $game->developer }}</td>
             <td>{{ $game->releasedate }}</td>
             <td>{{ $game->price }}</td>
             <td>{{ $game->genre }}</td>
             <td>{{ $game->slider }}</td>
             <td>{{ $game->description }}</td>
+            
         </tr>
         @endforeach
     </table>

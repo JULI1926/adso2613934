@@ -2381,7 +2381,13 @@ main.games {
                     width: 90px;
                 }
             }
+            .list {
+                display: flex;
+                flex-direction: column;
+                gap: 20px; /* Añade un espacio entre los elementos hijos */
+            }
             aside {
+                /*margin-bottom: 20px;*/
                 h3 {
                     color: var(--color-five);
                     font-size: 18px;
