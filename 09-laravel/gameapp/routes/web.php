@@ -53,6 +53,9 @@ Route::post('users/search', [UserController::class, 'search']);
 Route::get('exports/users/pdf', [UserController::class, 'pdf']);
 Route::get('exports/users/excel', [UserController::class, 'excel']);
 
+Route::get('exports/games/pdf', [GamesController::class, 'pdf']);
+Route::get('exports/games/excel', [GamesController::class, 'excel']);
+
 
 Route::post('categories/search', [CategorieController::class, 'search']);
 

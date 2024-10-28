@@ -48,21 +48,21 @@
                 </label>
             </div>
             <div class="title-input">
-                <input type="text" id="tittle" name="title" placeholder="Introduzca el titulo" required>
+                <input type="text" id="title" name="title" placeholder="Introduzca el titulo" required>
             </div>
         </div>
         <div class="form-group">
             <div>
-                <label class="title-content-register" for="fullname">
-                    <span class="icon"><img src="../images/category-add-game.png" alt="Icono de Nombre Completo"></span>
+                <label class="title-content-register" for="category_id">
+                    <span class="icon"><img src="{{ asset('images/category-add-game.png') }}" alt="Icono de Nombre Completo"></span>
                     Category:
                 </label>
             </div>
             <div class="title-input">
-                <select name="category_id">
+                <select class="category_id" name="category_id" id="category_id">
                     <option value="">Select...</option>
                     @foreach ($cats as $cat)
-                    <option value="{{$cat->id}}">{{$cat->name}}</option>
+                    <option value="{{ $cat->id }}">{{ $cat->name }}</option>
                     @endforeach
                 </select>
             </div>

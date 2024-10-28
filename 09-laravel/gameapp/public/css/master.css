@@ -2591,11 +2591,19 @@ main.addgame {
             align-items: center;
         }
     
-        .image-name-register {
+        .image-name-register{
             width: 90px;
             height: 90px;
             align-items: center;
             gap: 0.4rem;
+        }
+
+        select.category_id {
+            width: 320px; /* Ajusta el ancho */
+            height: 50px; /* Ajusta la altura */
+            border-radius: 20px; /* Ajusta el radio del borde */
+            border: 1px solid; /* Ajusta el borde */
+            padding: 0 20px 0 20px;
         }
 
         

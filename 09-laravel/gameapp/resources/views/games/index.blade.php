@@ -23,6 +23,15 @@
         <a class="add" href=" {{ url('games/create')}} ">
             <img src="{{ url('images/content-btn-add.svg')}}" alt="Add">
         </a>
+        <div class="options">
+            <a href="{{ url('exports/games/excel')}}">
+                <img src="{{asset('images/excel.png')}}" alt="">
+            </a>
+            <input type="text" name="qsearch" id="qsearch" placeholder="Search">
+            <a href="{{ url('exports/games/pdf')}}">
+                <img src="{{asset('images/pdf.png')}}" alt="">
+            </a>
+        </div>
         @foreach($games as $game)
             <article class="record">  
                 <figure class="avatar">
@@ -37,12 +46,16 @@
                     <a href="{{ url('games/' .$game->id )}}">
                         <img src="{{asset('images/ico-search.svg')}}" alt="Show">
                     </a>
-                    <a href="edit-category.html">
+                    <a href="{{ route('games.edit',$game->id)}}">
                         <img src="{{asset('images/ico-edit.svg')}}" alt="Edit">
-                    </a>
-                    <a href="javascript:;">
+                    </a>                    
+                    <a href="javascript:;" class="delete" data-fullname="{{ $game->title}}">
                         <img src="{{asset('images/ico-delete.svg')}}" alt="Delete">
                     </a>
+                    <form action="{{ url('games/' .$game->id)}}" method="post" style="display:none">
+                        @csrf
+                        @method('DELETE')
+                    </form>
                 </figure>
             </article>   
         @endforeach
