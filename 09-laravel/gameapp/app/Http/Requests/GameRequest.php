@@ -43,7 +43,7 @@ class GameRequest extends FormRequest
             $rules['genre'] = ['required', 'string', 'max:255'];
             $rules['slider'] = ['required', 'boolean'];
         }
-
+        //dd($rules);
         return $rules;
     }
 

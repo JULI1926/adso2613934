@@ -73,7 +73,7 @@ class GamesController extends Controller
 
     public function update(GameRequest $request, Game $game)
     {
-        //dd($request->all());
+        //dd($request->all(), $request->file('image'));
 
         //dd($request->all());
 
@@ -82,10 +82,11 @@ class GamesController extends Controller
             $request->image->move(public_path('image'), $imageName);
             $imagePath = "image/" . $imageName; // Construir la ruta de acceso
         } else {
-            $imagePath = $game->photo; // Mantener la imagen existente
+            $imagePath = $game->image; // Mantener la imagen existente
         }
+        //dd($imagePath);
 
-        // Actualizar los campos de la categoría
+        // Actualizar los campos de game
         $game->update([
             'title' => $request->title,
             'image' => $imagePath,
