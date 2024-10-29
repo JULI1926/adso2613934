@@ -7,9 +7,11 @@ use App\Http\Controllers\CategorieController;
 use App\Http\Controllers\GamesController;
 use App\Models\User;
 use App\Http\Controllers\Auth\RegisteredUserController;
+use App\Models\Game;
 
 Route::get('/', function () {
-    return view('welcome');
+    $sliders = Game::where('slider', 1)->get();    
+    return view('welcome')->with('sliders', $sliders);
 });
 
 
@@ -59,6 +61,9 @@ Route::get('exports/games/excel', [GamesController::class, 'excel']);
 //Search
 Route::post('categories/search', [CategorieController::class, 'search']);
 Route::post('games/search', [GamesController::class, 'search']);
+
+//Import
+Route::post('import/users', [UserController::class, 'import']);
 
 
 require __DIR__.'/auth.php';

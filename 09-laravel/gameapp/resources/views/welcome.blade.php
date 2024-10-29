@@ -7,12 +7,11 @@
     <img src="../images/logo-welcome.svg" alt="logo">
 </header>
 <section class="slider owl-carousel owl-theme">
-
-    <img src="../images/slide01.png" alt="Slide01">
-    <img src="../images/slide02.png" alt="Slide02">
-    <img src="../images/slide03.png" alt="Slide03">
-    <img src="../images/slide04.png" alt="Slide04">
-    <img src="../images/slide05.png" alt="Slide05">
+    @foreach ($sliders as $slider)  
+        <img src="{{ asset($slider->image)}}" alt="{{$slider->title}}">
+    @endforeach
+    
+    
 
 </section>
 

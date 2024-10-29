@@ -19,6 +19,13 @@
 
 <section>
     <div class="area">
+        <form action="{{ url('import/users') }}" method="POST" enctype="multipart/form-data">
+                @csrf
+                <input type="file" name="file" id="file" class="hidden" accept="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet">
+                <button type="button" class="btn-import">
+                    <img src="{{asset('images/content-btn-import-excel.jpeg')}}" alt="Import">
+                </button>
+        </form>    
         <a class="add" href="{{ url('users/create')}}">
             <img src="../images/content-btn-add.svg" alt="Add">
         </a>
@@ -78,11 +85,14 @@
     $("header").on("click", ".btn-burger", function() {
         $(this).toggleClass("active");
         $(".nav").toggleClass("active");
-    });
+    })
 
-    $(document).ready(function() {
-        $("#menu-dashboard").load("/menudashboard");
-        $('.loader').hide();
+    $(".btn-import").on("click", function(e) {        
+        $("#file").click();
+    })
+
+    $('#file').change(function(event) {
+        $(this).parent().submit();        
     });
 </script>
 
