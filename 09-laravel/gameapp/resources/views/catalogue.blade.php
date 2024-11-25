@@ -18,102 +18,49 @@
 </nav>
 <section class="scroll">
     <form action="" method="POST">
-        <input type="text" placeholder="Filter" maxlength="18">
+        <input type="text" id="fcat" list="lcat" placeholder="Filter" maxlength="18">
+        <datalist id="lcat">
+            <option value="All"></option>
+            @foreach ($categories as $category)
+                <option value="{{ $category->name }}"></option>
+            @endforeach
+        </datalist>
+
     </form>
-    <article>
-        <h2><img src="../images/ico-category.svg" alt="">
-            Sports
-        </h2>
-        <div class="owl-carousel owl-theme">
-            <a href="../frames/03-view-game.html">
-                <figure>
-                    <img src="../images/slide-c1-01.png" alt="" class="slide">
-                    FC 24 Mobile
-                </figure>
-            </a>
-            <a href="../frames/03-view-game.html">
-                <figure>
-                    <img src="../images/slide-c1-02.png" alt="" class="slide">
-                    Efootball 2024
 
-                </figure>
-            </a>
-            <a href="../frames/03-view-game.html">
-                <figure>
-                    <img src="../images/slide-c1-03.png" alt="" class="slide">
-                    DLS 2024
+    <div class="content">
+        @foreach ($categories as $category)
+            @if(count($category->games) > 0)
+            <article>
+                <h2><img src="../images/ico-category.svg" alt="">
+                    {{ $category->name }}
+                </h2>
+                <div class="owl-carousel owl-theme">
+                    @foreach ($games as $game)
+                        @if($category->id == $game->category_id)
+                            <a href="{{ url('catalogue/'.$game->id)}}">
+                                <figure>
+                                    <img src="{{$game->image}}" alt="" class="slide">
+                                    {{$game->title}}
+                                </figure>
+                            </a>
+                        @endif
+                    @endforeach           
+                </div>
+            </article>
+            @endif    
+        @endforeach
+    </div>
 
-                </figure>
-            </a>
-            <a href="../frames/03-view-game.html">
-                <figure>
-                    <img src="../images/slide-c1-04.png" alt="" class="slide">
-                    Penalty Fever
-                </figure>
-            </a>
-        </div>
-    </article>
-    <article>
-        <h2><img src="../images/ico-category.svg" alt="">
-            Shutter
-        </h2>
-        <div class="owl-carousel owl-theme">
-            <a href="../frames/03-view-game.html">
-                <figure>
-                    <img src="../images/slide-c2-01.png" alt="" class="slide">
-                    Valorant
+    {{-- <a href="../frames/03-view-game.html">
+        <figure>
+            <img src="../images/slide-c1-01.png" alt="" class="slide">
+            FC 24 Mobile
+        </figure>
+    </a>          --}}
 
-                </figure>
-            </a>
-            <a href="../frames/03-view-game.html">
-                <figure>
-                    <img src="../images/slide-c2-02.png" alt="" class="slide">
-                    Fortnite
-
-                </figure>
-            </a>
-            <a href="../frames/03-view-game.html">
-                <figure>
-                    <img src="../images/slide-c2-03.png" alt="" class="slide">
-                    Doom
-                </figure>
-            </a>
-            <a href="../frames/03-view-game.html">
-                <figure>
-                    <img src="../images/slide-c2-04.png" alt="" class="slide">
-                    CSGO
-                </figure>
-            </a>
-        </div>
-    </article>
-    <article>
-        <h2><img src="../images/ico-category.svg" alt="">
-            Categor
-        </h2>
-        <div class="owl-carousel owl-theme">
-            <a href="../frames/03-view-game.html">
-                <figure>
-                    <img src="../images/slide-c1-01.png" alt="" class="slide">
-                    FC 24 Mobile
-
-                </figure>
-            </a>
-            <a href="../frames/03-view-game.html">
-                <figure>
-                    <img src="../images/slide-c1-02.png" alt="" class="slide">
-                    Title Game
-
-                </figure>
-            </a>
-            <a href="../frames/03-view-game.html">
-                <figure>
-                    <img src="../images/slide-c1-03.png" alt="" class="slide">
-                    Title Game
-
-                </figure>
-            </a>
-        </div>
-    </article>
+    
+    
 </section>
 
 @endsection
@@ -122,29 +69,58 @@
 
 <script>
     $(document).ready(function () {
-            $('.owl-carousel').owlCarousel({
-                center: false,
-                loop: true,
-                margin: -35,
-                nav: true,
-                dots: false,
-                responsive: {
-                    0: {
-                        items: 2
-                    }
-
+        // - - - - - - - - - - - - - - -
+        $('.owl-carousel').owlCarousel({
+            center: false,
+            loop: true,
+            margin: 0,
+            nav: true,
+            dots: false,
+            responsive:{
+                0:{
+                    items: 2
                 }
-            })
+            }
         })
-
+        // - - - - - - - - - - - - - - -
         $('header').on('click', '.btn-burger', function () {
             $(this).toggleClass('active')
             $('.nav').toggleClass('active')
         })
-
-        $(document).ready(function () {
-            $("#menu-login").load("/menu");
-        });
+        // - - - - - - - - - - - - - - -
+        $('body').on('change', '#fcat', function(event) {
+            event.preventDefault()
+            $fcat = $(this).val()
+            $tk   = $('input[name="_token"]').val()
+            $('.loader').removeClass('hidden')
+            $('#content').hide()
+            $sto = setTimeout(() => {
+                clearTimeout($sto)
+                $.post("gamesbycat", {
+                    fcat: $fcat,
+                    _token: $tk
+                },
+                    function (data) {
+                        $('.loader').addClass('hidden')
+                        $('#content').html(data).fadeIn('slow')
+                        $('.owl-carousel').owlCarousel({
+                            center: false,
+                            loop: true,
+                            margin: 0,
+                            nav: true,
+                            dots: false,
+                            responsive:{
+                                0:{
+                                    items: 2
+                                }
+                            }
+                        })
+                    })
+            }, 1500)
+        })
+ 
+        // - - - - - - - - - - - - - - -
+    })
 </script>
 
 @endsection
